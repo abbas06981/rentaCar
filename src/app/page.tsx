@@ -1,10 +1,10 @@
-import {HeroSection} from "@/components/homeScreen"
+import {HeroSection,SearchSection} from "@/components/homeScreen"
 
 export default function Home() {
   return (
 <div className="w-full h-full">
 <HeroSection>
-  s
+  <SearchSection/>
 </HeroSection>
 
 </div>
