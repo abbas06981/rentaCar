@@ -1,9 +1,18 @@
-import React from 'react'
+import React from "react";
 
-const HeroSection = () => {
-  return (
-    <div>HeroSection</div>
-  )
+interface HeroSectionProps {
+  children: React.ReactNode;
 }
 
-export default HeroSection
+const HeroSection: React.FC<HeroSectionProps> = ({ children }) => {
+  return (
+    <div
+      className="relative w-full h-screen bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: 'url("/homeIcons/heroImg.jpg")' }}
+    >
+      {children}
+    </div>
+  );
+};
+
+export default HeroSection;
