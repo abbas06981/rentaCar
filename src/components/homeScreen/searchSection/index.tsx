@@ -1,5 +1,5 @@
 import React from 'react'
-import MakeABooking from './MakeABookingTab'
+// import MakeABooking from './MakeABookingTab'
 
 const Index = () => {
   return (
