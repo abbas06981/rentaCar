@@ -12,6 +12,7 @@ import {
   RadioGroup,
   Button,
   Grid,
+  IconButton,
 } from "@mui/material";
 import { useForm, Controller } from "react-hook-form";
 import SearchIcon from "@mui/icons-material/Search";
@@ -21,7 +22,6 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import type { SubmitHandler } from "react-hook-form";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
-
 
 type FormValues = {
   pickupLocation: string;
@@ -79,9 +79,7 @@ const MakeABookingTab = () => {
 
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     console.log("Form Data:", data);
-    // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 1000));
-    // Handle actual submission here
   };
 
   return (
@@ -138,17 +136,25 @@ const MakeABookingTab = () => {
                 {...field}
                 slotProps={{
                   textField: {
+                    id: "pickup-dtp",
                     variant: "standard",
                     fullWidth: true,
                     error: !!errors.pickupDateTime,
                     helperText: errors.pickupDateTime?.message,
-                    InputProps: {
+                    InputProps: (params) => ({
+                      ...params.InputProps,
                       endAdornment: (
                         <InputAdornment position="end">
-                          <CalendarTodayIcon color="primary" />
+                          <IconButton
+                            onClick={() =>
+                              document.getElementById("pickup-dtp")?.focus()
+                            }
+                          >
+                            <CalendarTodayIcon color="primary" />
+                          </IconButton>
                         </InputAdornment>
                       ),
-                    },
+                    }),
                   },
                 }}
               />
@@ -167,22 +173,30 @@ const MakeABookingTab = () => {
             render={({ field }) => (
               <DateTimePicker
                 {...field}
+                minDateTime={watch("pickupDateTime")}
                 slotProps={{
                   textField: {
+                    id: "dropoff-dtp",
                     variant: "standard",
                     fullWidth: true,
                     error: !!errors.dropoffDateTime,
                     helperText: errors.dropoffDateTime?.message,
-                    InputProps: {
+                    InputProps: (params) => ({
+                      ...params.InputProps,
                       endAdornment: (
                         <InputAdornment position="end">
-                          <CalendarTodayIcon color="primary" />
+                          <IconButton
+                            onClick={() =>
+                              document.getElementById("dropoff-dtp")?.focus()
+                            }
+                          >
+                            <CalendarTodayIcon color="primary" />
+                          </IconButton>
                         </InputAdornment>
                       ),
-                    },
+                    }),
                   },
                 }}
-                minDateTime={watch("pickupDateTime")}
               />
             )}
           />
