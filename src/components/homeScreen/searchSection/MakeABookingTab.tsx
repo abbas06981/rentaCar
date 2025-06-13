@@ -2,7 +2,12 @@ import React from 'react'
 
 const MakeABooking = () => {
   return (
-    <div>MakeABooking</div>
+    <div className='w-full'>
+      
+    
+      
+      
+      </div>
   )
 }
 
