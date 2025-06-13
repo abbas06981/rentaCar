@@ -6,7 +6,7 @@ const Index = () => {
     <div className='w-full flex justify-center items-center '>
 
 <div className='bg-white  w-[80%] mt-32 p-5 rounded-xl'>
-d
+  
 </div>
 
     </div>
