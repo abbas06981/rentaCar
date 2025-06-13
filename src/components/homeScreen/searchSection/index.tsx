@@ -16,13 +16,13 @@ const Index = () => {
 
   return (
     <div className="w-full flex justify-center items-center">
-      <div className="bg-white w-[80%] mt-32 rounded-xl p-1">
+      <div className="bg-white w-[80%] mt-32 rounded-xl p-2">
         <Box sx={{ width: "100%" }}>
           <Tabs
             value={value}
             onChange={handleChange}
-            textColor="secondary"
-            indicatorColor="secondary"
+            // textColor="secondary"
+            // indicatorColor="secondary"
             aria-label="secondary tabs example"
           >
             <Tab label="Make A Booking" value="MakeABooking" />
