@@ -1,26 +1,38 @@
+"use client";
+
 import React from "react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import MakeABooking from './MakeABookingTab'
-import MyReservation from './MyReservation'
+import MakeABooking from "./MakeABookingTab";
+import MyReservation from "./MyReservation";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Box from "@mui/material/Box";
 
 const Index = () => {
+  const [value, setValue] = React.useState("MakeABooking");
+
+  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+    setValue(newValue);
+  };
+
   return (
-    <div className="w-full flex justify-center items-center ">
-      <div className="bg-white  w-[80%] mt-32  rounded-xl p-3">
-        <Tabs defaultValue="account" className="w-[400px]">
-          <TabsList>
-            <TabsTrigger value="makeBooking">Make A Booking</TabsTrigger>
-            <TabsTrigger value="myReservation">My Reservation</TabsTrigger>
-          </TabsList>
-          <div className="px-2">
-            <TabsContent value="makeBooking">
-           <MakeABooking/>
-            </TabsContent>
-            <TabsContent value="myReservation">
- <MyReservation/>
-            </TabsContent>
-          </div>
-        </Tabs>
+    <div className="w-full flex justify-center items-center">
+      <div className="bg-white w-[80%] mt-32 rounded-xl p-1">
+        <Box sx={{ width: "100%" }}>
+          <Tabs
+            value={value}
+            onChange={handleChange}
+            textColor="secondary"
+            indicatorColor="secondary"
+            aria-label="secondary tabs example"
+          >
+            <Tab label="Make A Booking" value="MakeABooking" />
+            <Tab label="My Reservation" value="MyReservation" />
+          </Tabs>
+          <Box sx={{ p: 2 }}>
+            {value === "MakeABooking" && <MakeABooking />}
+            {value === "MyReservation" && <MyReservation />}
+          </Box>
+        </Box>
       </div>
     </div>
   );
