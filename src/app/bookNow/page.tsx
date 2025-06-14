@@ -1,8 +1,9 @@
 import React from 'react'
+import BookNow from '@/components/screens/bookNow'
 
 const page = () => {
   return (
-    <div>page</div>
+ <BookNow/>
   )
 }
 
