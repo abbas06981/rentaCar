@@ -6,10 +6,12 @@ import React from "react";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { Avatar, Button, FormControl, MenuItem, Select } from "@mui/material";
 import MenuSharpIcon from "@mui/icons-material/MenuSharp";
-const Header = () => {
-  const [language, setLanguage] = React.useState(10);
+import type { SelectChangeEvent } from "@mui/material/Select";
 
-  const handleChange = (event: any) => {
+const Header = () => {
+  const [language, setLanguage] = React.useState("10");
+
+  const handleChange = (event: SelectChangeEvent) => {
     setLanguage(event.target.value);
   };
 
@@ -33,12 +35,13 @@ const Header = () => {
           className="text-white"
         >
           <Select
+            sx={{ color: "white" }}
             value={language}
             onChange={handleChange}
-            sx={{ color: "white" }}
+          
           >
-            <MenuItem value={10}>Eng</MenuItem>
-            <MenuItem value={20}>Urdu</MenuItem>
+            <MenuItem value="10">Eng</MenuItem>
+            <MenuItem value="20">Urdu</MenuItem>
           </Select>
         </FormControl>
 
