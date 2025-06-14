@@ -14,7 +14,7 @@ import {
 import SearchIcon from "@mui/icons-material/Search";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
-
+import { redirect } from "next/navigation";
 interface LocationOption {
   label: string;
   value: string;
@@ -103,6 +103,7 @@ const MakeABookingTab: React.FC = () => {
     //   console.log("Form Data:", formData);
     //   // Submit logic here
     // }
+    redirect("/bookNow");
   };
 
   return (
@@ -289,8 +290,13 @@ const MakeABookingTab: React.FC = () => {
               fontWeight: "bold",
               textTransform: "none",
               backgroundColor: "#004B9C",
-              "&:hover": { backgroundColor: "#0086ff",
-                color:"white",scale:"1.1",transition:"all",animationDelay:"1.5s" },
+              "&:hover": {
+                backgroundColor: "#0086ff",
+                color: "white",
+                scale: "1.1",
+                transition: "all",
+                animationDelay: "1.5s",
+              },
               whiteSpace: "nowrap",
             }}
             endIcon={<ArrowForwardIcon />}
