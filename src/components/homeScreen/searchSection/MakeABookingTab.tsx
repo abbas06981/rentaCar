@@ -9,7 +9,6 @@ import {
   MenuItem,
   FormControlLabel,
   Radio,
-  RadioGroup,
   Button,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
@@ -46,7 +45,9 @@ const MakeABookingTab: React.FC = () => {
     discountCode: "",
   });
 
-  const [errors, setErrors] = useState<Partial<Record<keyof FormValues, string>>>({});
+  const [errors, setErrors] = useState<
+    Partial<Record<keyof FormValues, string>>
+  >({});
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -54,7 +55,8 @@ const MakeABookingTab: React.FC = () => {
     if (name === "differentDropOff") {
       setFormData((prev) => ({
         ...prev,
-        [name]: value === "true",
+        differentDropOff: !prev.differentDropOff,
+        dropoffLocation: "",
       }));
     } else {
       setFormData((prev) => ({
@@ -74,8 +76,10 @@ const MakeABookingTab: React.FC = () => {
   const validate = (): boolean => {
     const newErrors: Partial<Record<keyof FormValues, string>> = {};
 
-    if (!formData.pickupLocation) newErrors.pickupLocation = "Pickup location is required";
-    if (!formData.pickupDateTime) newErrors.pickupDateTime = "Pickup date/time is required";
+    if (!formData.pickupLocation)
+      newErrors.pickupLocation = "Pickup location is required";
+    if (!formData.pickupDateTime)
+      newErrors.pickupDateTime = "Pickup date/time is required";
     if (!formData.dropoffDateTime) {
       newErrors.dropoffDateTime = "Drop-off date/time is required";
     } else if (
@@ -97,7 +101,7 @@ const MakeABookingTab: React.FC = () => {
     e.preventDefault();
     if (validate()) {
       console.log("Form Data:", formData);
-      // Handle submission logic here
+      // Submit logic here
     }
   };
 
@@ -106,49 +110,50 @@ const MakeABookingTab: React.FC = () => {
       component="form"
       onSubmit={handleSubmit}
       sx={{
-        p: 3,
+        p: 0,
         backgroundColor: "#fff",
         borderRadius: 2,
         display: "flex",
         flexDirection: "column",
-        gap: 4,
       }}
     >
-      {/* Pickup Location */}
-      <Box>
-        <Typography fontWeight="bold" color="primary" gutterBottom>
-          Pickup Location:
-        </Typography>
-        <TextField
-          select
-          name="pickupLocation"
-          variant="standard"
-          fullWidth
-          value={formData.pickupLocation}
-          onChange={handleChange}
-          error={!!errors.pickupLocation}
-          helperText={errors.pickupLocation}
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <SearchIcon color="primary" />
-              </InputAdornment>
-            ),
-          }}
-        >
-          {locationOptions.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField>
-      </Box>
-
-      {/* Date and Time Pickers */}
+      {/* Pickup Location, Pickup Date, Drop-off Date */}
       <Box
-        sx={{ display: "flex", flexDirection: { xs: "column", md: "row" }, gap: 4 }}
+        sx={{
+          display: "flex",
+          flexDirection: { xs: "column", md: "row" },
+          gap: 1,
+        }}
       >
-        {/* Pickup DateTime */}
+        <Box flex={1}>
+          <Typography fontWeight="bold" color="primary" gutterBottom>
+            Pickup Location:
+          </Typography>
+          <TextField
+            select
+            name="pickupLocation"
+            variant="standard"
+            fullWidth
+            value={formData.pickupLocation}
+            onChange={handleChange}
+            error={!!errors.pickupLocation}
+            helperText={errors.pickupLocation}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SearchIcon color="primary" />
+                </InputAdornment>
+              ),
+            }}
+          >
+            {locationOptions.map((option) => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </TextField>
+        </Box>
+
         <Box flex={1}>
           <Typography fontWeight="bold" color="primary" gutterBottom>
             Pickup Date | Time:
@@ -167,7 +172,6 @@ const MakeABookingTab: React.FC = () => {
           />
         </Box>
 
-        {/* Dropoff DateTime */}
         <Box flex={1}>
           <Typography fontWeight="bold" color="primary" gutterBottom>
             Drop-off Date | Time:
@@ -188,60 +192,67 @@ const MakeABookingTab: React.FC = () => {
         </Box>
       </Box>
 
-      {/* Drop-Off Toggle */}
-      <RadioGroup
-        name="differentDropOff"
-        value={formData.differentDropOff}
-        onChange={handleChange}
-      >
+      <Box display="flex" alignItems="center">
         <FormControlLabel
-          value={true}
-          control={<Radio />}
-          label="Different Drop-Off Location"
+          value="true"
+          control={<Radio checked={formData.differentDropOff} size="small" />}
+          label={
+            <Typography fontWeight="bold" color="primary">
+              Different Drop-Off Location
+            </Typography>
+          }
+          onClick={() =>
+            setFormData((prev) => ({
+              ...prev,
+              differentDropOff: !prev.differentDropOff,
+              dropoffLocation: "",
+            }))
+          }
+          sx={{ m: 0 }}
         />
-      </RadioGroup>
+      </Box>
 
-      {/* Drop-off Location (Conditional) */}
-      {formData.differentDropOff && (
-        <Box>
-          <Typography fontWeight="bold" color="primary" gutterBottom>
-            Drop-off Location:
-          </Typography>
-          <TextField
-            select
-            name="dropoffLocation"
-            variant="standard"
-            fullWidth
-            value={formData.dropoffLocation}
-            onChange={handleChange}
-            error={!!errors.dropoffLocation}
-            helperText={errors.dropoffLocation}
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <SearchIcon color="primary" />
-                </InputAdornment>
-              ),
-            }}
-          >
-            {locationOptions.map((option) => (
-              <MenuItem key={option.value} value={option.value}>
-                {option.label}
-              </MenuItem>
-            ))}
-          </TextField>
-        </Box>
-      )}
-
-      {/* Discount Code and Submit */}
       <Box
         sx={{
           display: "flex",
+          justifyContent: "space-between",
           flexDirection: { xs: "column", md: "row" },
-          gap: 4,
-          alignItems: "flex-end",
+          gap: 2,
         }}
       >
+        {/* Drop-off Location Column */}
+        {formData.differentDropOff && (
+          <Box flex={1}>
+            <Typography fontWeight="bold" color="primary" gutterBottom>
+              Drop-off Location:
+            </Typography>
+            <TextField
+              select
+              name="dropoffLocation"
+              variant="standard"
+              fullWidth
+              value={formData.dropoffLocation}
+              onChange={handleChange}
+              error={!!errors.dropoffLocation}
+              helperText={errors.dropoffLocation}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <SearchIcon color="primary" />
+                  </InputAdornment>
+                ),
+              }}
+            >
+              {locationOptions.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </TextField>
+          </Box>
+        )}
+
+        {/* Discount Code Column */}
         <Box flex={1}>
           <Typography fontWeight="bold" color="primary" gutterBottom>
             Discount Code:
@@ -258,14 +269,23 @@ const MakeABookingTab: React.FC = () => {
           />
         </Box>
 
-        <Box>
+        {/* Book Now Button Column */}
+        <Box
+          flex={1}
+          sx={{
+            display: "flex",
+            alignItems: "end",
+            justifyContent: { xs: "center", md: "flex-start" },
+          }}
+        >
           <Button
             type="submit"
             variant="contained"
+            size="small"
             sx={{
               borderRadius: "999px",
               px: 5,
-              py: 1.5,
+              py: 1,
               fontWeight: "bold",
               textTransform: "none",
               backgroundColor: "#004B9C",
