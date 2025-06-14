@@ -11,7 +11,7 @@ const FormTabs = () => {
   };
 
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box sx={{ width: "100%",pt:2}}>
       <Tabs
         value={value}
         onChange={handleChange}
