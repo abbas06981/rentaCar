@@ -11,7 +11,7 @@ const BookingSteps = () => {
           {/* Segment 2 */}
           <div className="h-2 bg-[#53adff] flex-1 mx-2 rounded"></div>
           {/* Segment 3 */}
-          <div className="h-2 bg-gray-300 flex-1 mx-2 rounded"></div>
+          <div className="h-2 bg-[#53adff] flex-1 mx-2 rounded"></div>
         </div>
 
         {/* Steps Container */}
