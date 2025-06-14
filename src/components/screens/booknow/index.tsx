@@ -15,11 +15,11 @@ const BookNow = () => {
         <span className="pr-1 text-[#16385c]">/</span>
         <span className="pr-1 text-[#16385c] ">Explore Vehicles</span>
       </div>
-      <h1 className=" py-8 font-bold text-2xl text-[#004d99]">
+      <h1 className=" py-5 font-bold text-2xl text-[#004d99]">
         Explore Vehicles
       </h1>
-      <BookingSteps/>
-      <FormTabs/>
+      <BookingSteps />
+      <FormTabs />
     </div>
   );
 };

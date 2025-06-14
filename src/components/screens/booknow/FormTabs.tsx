@@ -9,7 +9,7 @@ const FormTabs = () => {
   };
 
   return (
-    <div className="bg-white pt-8">
+    <div className="bg-white pt-5">
       <Box sx={{ width: "100%" }}>
         <Tabs
           value={value}
