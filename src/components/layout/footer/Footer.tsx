@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <div
       className="w-full flex justify-between
-     bg-blue-900 text-white px-8 h-[80px] items-center"
+     bg-blue-900 text-white px-8 min-h-[80px] items-center"
     >
       Footer
     </div>
