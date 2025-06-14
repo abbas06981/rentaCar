@@ -45,9 +45,9 @@ const MakeABookingTab: React.FC = () => {
     discountCode: "",
   });
 
-  const [errors, setErrors] = useState<
-    Partial<Record<keyof FormValues, string>>
-  >({});
+  // const [errors, setErrors] = useState<
+  //   Partial<Record<keyof FormValues, string>>
+  // >({});
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -73,36 +73,36 @@ const MakeABookingTab: React.FC = () => {
     }));
   };
 
-  const validate = (): boolean => {
-    const newErrors: Partial<Record<keyof FormValues, string>> = {};
+  // const validate = (): boolean => {
+  //   const newErrors: Partial<Record<keyof FormValues, string>> = {};
 
-    if (!formData.pickupLocation)
-      newErrors.pickupLocation = "Pickup location is required";
-    if (!formData.pickupDateTime)
-      newErrors.pickupDateTime = "Pickup date/time is required";
-    if (!formData.dropoffDateTime) {
-      newErrors.dropoffDateTime = "Drop-off date/time is required";
-    } else if (
-      formData.pickupDateTime &&
-      formData.dropoffDateTime <= formData.pickupDateTime
-    ) {
-      newErrors.dropoffDateTime = "Drop-off must be after pickup time";
-    }
+  //   if (!formData.pickupLocation)
+  //     newErrors.pickupLocation = "Pickup location is required";
+  //   if (!formData.pickupDateTime)
+  //     newErrors.pickupDateTime = "Pickup date/time is required";
+  //   if (!formData.dropoffDateTime) {
+  //     newErrors.dropoffDateTime = "Drop-off date/time is required";
+  //   } else if (
+  //     formData.pickupDateTime &&
+  //     formData.dropoffDateTime <= formData.pickupDateTime
+  //   ) {
+  //     newErrors.dropoffDateTime = "Drop-off must be after pickup time";
+  //   }
 
-    if (formData.differentDropOff && !formData.dropoffLocation) {
-      newErrors.dropoffLocation = "Drop-off location is required";
-    }
+  //   if (formData.differentDropOff && !formData.dropoffLocation) {
+  //     newErrors.dropoffLocation = "Drop-off location is required";
+  //   }
 
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
+  //   setErrors(newErrors);
+  //   return Object.keys(newErrors).length === 0;
+  // };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (validate()) {
-      console.log("Form Data:", formData);
-      // Submit logic here
-    }
+    // if (validate()) {
+    //   console.log("Form Data:", formData);
+    //   // Submit logic here
+    // }
   };
 
   return (
@@ -136,8 +136,8 @@ const MakeABookingTab: React.FC = () => {
             fullWidth
             value={formData.pickupLocation}
             onChange={handleChange}
-            error={!!errors.pickupLocation}
-            helperText={errors.pickupLocation}
+            // error={!!errors.pickupLocation}
+            // helperText={errors.pickupLocation}
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
@@ -165,8 +165,8 @@ const MakeABookingTab: React.FC = () => {
               textField: {
                 variant: "standard",
                 fullWidth: true,
-                error: !!errors.pickupDateTime,
-                helperText: errors.pickupDateTime,
+                // error: !!errors.pickupDateTime,
+                // helperText: errors.pickupDateTime,
               },
             }}
           />
@@ -184,8 +184,8 @@ const MakeABookingTab: React.FC = () => {
               textField: {
                 variant: "standard",
                 fullWidth: true,
-                error: !!errors.dropoffDateTime,
-                helperText: errors.dropoffDateTime,
+                // error: !!errors.dropoffDateTime,
+                // helperText: errors.dropoffDateTime,
               },
             }}
           />
@@ -233,8 +233,8 @@ const MakeABookingTab: React.FC = () => {
               fullWidth
               value={formData.dropoffLocation}
               onChange={handleChange}
-              error={!!errors.dropoffLocation}
-              helperText={errors.dropoffLocation}
+              // error={!!errors.dropoffLocation}
+              // helperText={errors.dropoffLocation}
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
@@ -264,8 +264,8 @@ const MakeABookingTab: React.FC = () => {
             placeholder="Enter discount code"
             value={formData.discountCode}
             onChange={handleChange}
-            error={!!errors.discountCode}
-            helperText={errors.discountCode}
+            // error={!!errors.discountCode}
+            // helperText={errors.discountCode}
           />
         </Box>
 
