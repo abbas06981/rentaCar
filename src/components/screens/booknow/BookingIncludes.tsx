@@ -1,9 +1,35 @@
-import React from 'react'
 
-const BookingIncludes = () => {
+import React, {  } from "react";
+import {
+  Box,
+
+} from "@mui/material";
+
+
+
+
+
+const BookingIncludes: React.FC = () => {
+
+
+ 
+
   return (
-    <div>BookingIncludes</div>
-  )
-}
+    <Box
+      component="form"
+     
+      sx={{
+         p: 2,
+        backgroundColor: "#1c398e",
+        borderRadius: 2,
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
 
-export default BookingIncludes
+
+    </Box>
+  );
+};
+
+export default BookingIncludes;
