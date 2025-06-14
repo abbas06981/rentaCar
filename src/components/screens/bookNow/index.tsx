@@ -1,7 +1,18 @@
+import Link from "next/link";
 import React from "react";
 
 const BookNow = () => {
-  return <div className="w-full">BookNow</div>;
+  return (
+    <div className="w-full px-10 py-6">
+      <div className="w-full flex text-[18px] font-medium ">
+        <Link href="/" className="pr-1 text-[#85c0ff] hover:text-[#f9b916]">
+          Home
+        </Link>
+        <span className="pr-1 text-[#16385c]">/</span>
+        <span className="pr-1 text-[#16385c] ">Explore Vehicles</span>
+      </div>
+    </div>
+  );
 };
 
 export default BookNow;
