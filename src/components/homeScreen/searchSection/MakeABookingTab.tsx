@@ -14,7 +14,7 @@ import {
 import SearchIcon from "@mui/icons-material/Search";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
-import { redirect } from "next/navigation";
+import { useRouter } from 'next/navigation';
 interface LocationOption {
   label: string;
   value: string;
@@ -36,6 +36,7 @@ const locationOptions: LocationOption[] = [
 ];
 
 const MakeABookingTab: React.FC = () => {
+    const router = useRouter();
   const [formData, setFormData] = useState<FormValues>({
     pickupLocation: "",
     pickupDateTime: null,
@@ -103,7 +104,7 @@ const MakeABookingTab: React.FC = () => {
     //   console.log("Form Data:", formData);
     //   // Submit logic here
     // }
-    redirect("/bookNow");
+      router.push("/bookNow");
   };
 
   return (
