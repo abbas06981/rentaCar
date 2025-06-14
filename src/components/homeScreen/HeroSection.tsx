@@ -7,7 +7,7 @@ interface HeroSectionProps {
 const HeroSection: React.FC<HeroSectionProps> = ({ children }) => {
   return (
     <div
-      className="relative w-full h-screen bg-cover bg-center bg-no-repeat"
+      className="relative w-full min-h-screen bg-cover bg-center bg-no-repeat pb-10"
       style={{ backgroundImage: 'url("/homeIcons/heroImg.jpg")' }}
     >
       {children}
