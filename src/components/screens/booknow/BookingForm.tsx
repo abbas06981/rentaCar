@@ -10,7 +10,6 @@ import {
   Button,
 } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
-
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 
 interface LocationOption {
@@ -43,10 +42,6 @@ const BookingForm: React.FC = () => {
     discountCode: "",
   });
 
-  // const [errors, setErrors] = useState<
-  //   Partial<Record<keyof FormValues, string>>
-  // >({});
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
@@ -71,36 +66,8 @@ const BookingForm: React.FC = () => {
     }));
   };
 
-  // const validate = (): boolean => {
-  //   const newErrors: Partial<Record<keyof FormValues, string>> = {};
-
-  //   if (!formData.pickupLocation)
-  //     newErrors.pickupLocation = "Pickup location is required";
-  //   if (!formData.pickupDateTime)
-  //     newErrors.pickupDateTime = "Pickup date/time is required";
-  //   if (!formData.dropoffDateTime) {
-  //     newErrors.dropoffDateTime = "Drop-off date/time is required";
-  //   } else if (
-  //     formData.pickupDateTime &&
-  //     formData.dropoffDateTime <= formData.pickupDateTime
-  //   ) {
-  //     newErrors.dropoffDateTime = "Drop-off must be after pickup time";
-  //   }
-
-  //   if (formData.differentDropOff && !formData.dropoffLocation) {
-  //     newErrors.dropoffLocation = "Drop-off location is required";
-  //   }
-
-  //   setErrors(newErrors);
-  //   return Object.keys(newErrors).length === 0;
-  // };
-
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // if (validate()) {
-    //   console.log("Form Data:", formData);
-    //   // Submit logic here
-    // }
   };
 
   return (
@@ -123,8 +90,9 @@ const BookingForm: React.FC = () => {
           gap: 1,
         }}
       >
+        {/* Pickup Location */}
         <Box flex={1}>
-          <Typography fontWeight="bold" color="primary" gutterBottom>
+          <Typography fontWeight="bold" color="white" gutterBottom>
             Pickup Location:
           </Typography>
           <TextField
@@ -134,14 +102,21 @@ const BookingForm: React.FC = () => {
             fullWidth
             value={formData.pickupLocation}
             onChange={handleChange}
-            // error={!!errors.pickupLocation}
-            // helperText={errors.pickupLocation}
             InputProps={{
+              style: { color: "white" },
               startAdornment: (
                 <InputAdornment position="start">
-                  <SearchIcon color="primary" />
+                  <SearchIcon sx={{ color: "white" }} />
                 </InputAdornment>
               ),
+            }}
+            InputLabelProps={{
+              style: { color: "white" },
+            }}
+            SelectProps={{
+              sx: {
+                color: "white",
+              },
             }}
           >
             {locationOptions.map((option) => (
@@ -152,8 +127,9 @@ const BookingForm: React.FC = () => {
           </TextField>
         </Box>
 
+        {/* Pickup DateTime */}
         <Box flex={1}>
-          <Typography fontWeight="bold" color="primary" gutterBottom>
+          <Typography fontWeight="bold" color="white" gutterBottom>
             Pickup Date | Time:
           </Typography>
           <DateTimePicker
@@ -163,15 +139,20 @@ const BookingForm: React.FC = () => {
               textField: {
                 variant: "standard",
                 fullWidth: true,
-                // error: !!errors.pickupDateTime,
-                // helperText: errors.pickupDateTime,
+                InputProps: {
+                  style: { color: "white" },
+                },
+                InputLabelProps: {
+                  style: { color: "white" },
+                },
               },
             }}
           />
         </Box>
 
+        {/* Drop-off DateTime */}
         <Box flex={1}>
-          <Typography fontWeight="bold" color="primary" gutterBottom>
+          <Typography fontWeight="bold" color="white" gutterBottom>
             Drop-off Date | Time:
           </Typography>
           <DateTimePicker
@@ -182,20 +163,31 @@ const BookingForm: React.FC = () => {
               textField: {
                 variant: "standard",
                 fullWidth: true,
-                // error: !!errors.dropoffDateTime,
-                // helperText: errors.dropoffDateTime,
+                InputProps: {
+                  style: { color: "white" },
+                },
+                InputLabelProps: {
+                  style: { color: "white" },
+                },
               },
             }}
           />
         </Box>
       </Box>
 
-      <Box display="flex" alignItems="center">
+      {/* Different Drop-Off Option */}
+      <Box display="flex" alignItems="center" mt={2}>
         <FormControlLabel
           value="true"
-          control={<Radio checked={formData.differentDropOff} size="small" />}
+          control={
+            <Radio
+              checked={formData.differentDropOff}
+              size="small"
+              sx={{ color: "white" }}
+            />
+          }
           label={
-            <Typography fontWeight="bold" color="primary">
+            <Typography fontWeight="bold" color="white">
               Different Drop-Off Location
             </Typography>
           }
@@ -216,12 +208,13 @@ const BookingForm: React.FC = () => {
           justifyContent: "space-between",
           flexDirection: { xs: "column", md: "row" },
           gap: 2,
+          mt: 2,
         }}
       >
-        {/* Drop-off Location Column */}
+        {/* Drop-off Location */}
         {formData.differentDropOff && (
           <Box flex={1}>
-            <Typography fontWeight="bold" color="primary" gutterBottom>
+            <Typography fontWeight="bold" color="white" gutterBottom>
               Drop-off Location:
             </Typography>
             <TextField
@@ -231,14 +224,21 @@ const BookingForm: React.FC = () => {
               fullWidth
               value={formData.dropoffLocation}
               onChange={handleChange}
-              // error={!!errors.dropoffLocation}
-              // helperText={errors.dropoffLocation}
               InputProps={{
+                style: { color: "white" },
                 startAdornment: (
                   <InputAdornment position="start">
-                    <SearchIcon color="primary" />
+                    <SearchIcon sx={{ color: "white" }} />
                   </InputAdornment>
                 ),
+              }}
+              InputLabelProps={{
+                style: { color: "white" },
+              }}
+              SelectProps={{
+                sx: {
+                  color: "white",
+                },
               }}
             >
               {locationOptions.map((option) => (
@@ -250,9 +250,9 @@ const BookingForm: React.FC = () => {
           </Box>
         )}
 
-        {/* Discount Code Column */}
+        {/* Discount Code */}
         <Box flex={1}>
-          <Typography fontWeight="bold" color="primary" gutterBottom>
+          <Typography fontWeight="bold" color="white" gutterBottom>
             Discount Code:
           </Typography>
           <TextField
@@ -262,12 +262,16 @@ const BookingForm: React.FC = () => {
             placeholder="Enter discount code"
             value={formData.discountCode}
             onChange={handleChange}
-            // error={!!errors.discountCode}
-            // helperText={errors.discountCode}
+            InputProps={{
+              style: { color: "white" },
+            }}
+            InputLabelProps={{
+              style: { color: "white" },
+            }}
           />
         </Box>
 
-        {/* Book Now Button Column */}
+        {/* Button */}
         <Box
           flex={1}
           sx={{
@@ -291,8 +295,7 @@ const BookingForm: React.FC = () => {
                 backgroundColor: "#0086ff",
                 color: "white",
                 scale: "1.1",
-                transition: "all",
-                animationDelay: "1.5s",
+                transition: "all 0.3s ease",
               },
               whiteSpace: "nowrap",
             }}
