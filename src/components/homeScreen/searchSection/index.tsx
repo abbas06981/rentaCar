@@ -16,18 +16,40 @@ const Index = () => {
 
   return (
     <div className="w-full flex justify-center items-center">
-      <div className="bg-white w-[80%] mt-32 rounded-xl p-2">
+      <div className="bg-white w-[80%] mt-32 rounded-xl p-1">
         <Box sx={{ width: "100%" }}>
-          <Tabs
-            value={value}
-            onChange={handleChange}
-            // textColor="secondary"
-            // indicatorColor="secondary"
-            aria-label="secondary tabs example"
-          >
-            <Tab label="Make A Booking" value="MakeABooking" />
-            <Tab label="My Reservation" value="MyReservation" />
-          </Tabs>
+     <Tabs
+  value={value}
+  onChange={handleChange}
+  aria-label="secondary tabs example"
+  textColor="primary"
+  indicatorColor="primary"
+>
+  <Tab
+    label="Make A Booking"
+    value="MakeABooking"
+    sx={{
+      fontSize: "14px",
+      fontWeight: "bold",
+      color: value === "MakeABooking" ? "primary.main" : "grey.600",
+      "&.Mui-selected": {
+        color: "primary.main",
+      },
+    }}
+  />
+  <Tab
+    label="My Reservation"
+    value="MyReservation"
+    sx={{
+      fontSize: "14px",
+      fontWeight: "bold",
+      color: value === "MyReservation" ? "primary.main" : "grey.600",
+      "&.Mui-selected": {
+        color: "primary.main",
+      },
+    }}
+  />
+</Tabs>
           <Box sx={{ p: 2 }}>
             {value === "MakeABooking" && <MakeABooking />}
             {value === "MyReservation" && <MyReservation />}
