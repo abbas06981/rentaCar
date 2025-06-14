@@ -1,7 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import React from "react";
 import BookingSteps from "./BookingSteps";
-import BookingForm from "./BookingForm";
+import FormTabs from "./FormTabs";
 
 const BookNow = () => {
   return (
@@ -17,7 +19,7 @@ const BookNow = () => {
         Explore Vehicles
       </h1>
       <BookingSteps/>
-      <BookingForm/>
+      <FormTabs/>
     </div>
   );
 };
