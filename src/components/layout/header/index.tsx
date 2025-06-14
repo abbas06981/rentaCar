@@ -20,7 +20,9 @@ const Header = () => {
       className="w-full flex justify-between
      bg-blue-900 text-white px-8 h-[80px] items-center"
     >
-      <Image src="/log2.svg" alt="logo" width={150} height={100} />
+      <Link href="/">
+        <Image src="/log2.svg" alt="logo" width={150} height={100} />
+      </Link>{" "}
       <div className="flex gap-4 justify-start items-center">
         <Link
           href="/#"
