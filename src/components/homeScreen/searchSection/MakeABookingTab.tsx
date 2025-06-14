@@ -289,7 +289,8 @@ const MakeABookingTab: React.FC = () => {
               fontWeight: "bold",
               textTransform: "none",
               backgroundColor: "#004B9C",
-              "&:hover": { backgroundColor: "#003a75" },
+              "&:hover": { backgroundColor: "#0086ff",
+                color:"white",scale:"1.1",transition:"all",animationDelay:"1.5s" },
               whiteSpace: "nowrap",
             }}
             endIcon={<ArrowForwardIcon />}
