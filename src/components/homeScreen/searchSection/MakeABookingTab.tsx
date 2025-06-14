@@ -99,10 +99,10 @@ const MakeABookingTab: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (validate()) {
-      console.log("Form Data:", formData);
-      // Submit logic here
-    }
+    // if (validate()) {
+    //   console.log("Form Data:", formData);
+    //   // Submit logic here
+    // }
   };
 
   return (
