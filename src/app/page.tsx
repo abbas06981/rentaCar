@@ -1,4 +1,4 @@
-import {HeroSection,SearchSection} from "@/components/homeScreen"
+import {HeroSection,SearchSection} from "@/components/screens/homeScreen"
 
 export default function Home() {
   return (
