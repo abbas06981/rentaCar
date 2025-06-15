@@ -4,6 +4,7 @@ import Link from "next/link";
 import React from "react";
 import BookingSteps from "./BookingSteps/BookingSteps";
 import FormTabs from "./FormTabs/FormTabs";
+import FilterSection from "./Filters";
 
 const BookNow = () => {
   return (
@@ -20,6 +21,7 @@ const BookNow = () => {
       </h1>
       <BookingSteps />
       <FormTabs />
+      <FilterSection/>
     </div>
   );
 };
