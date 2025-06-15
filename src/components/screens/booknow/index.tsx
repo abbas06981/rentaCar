@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import React from "react";
-import BookingSteps from "./BookingSteps";
-import FormTabs from "./FormTabs";
+import BookingSteps from "./BookingSteps/BookingSteps";
+import FormTabs from "./FormTabs/FormTabs";
 
 const BookNow = () => {
   return (
