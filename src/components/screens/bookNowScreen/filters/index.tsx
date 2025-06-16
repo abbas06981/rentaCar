@@ -11,11 +11,12 @@ import {
 import FilterListAltIcon from "@mui/icons-material/FilterListAlt";
 import CarCards from "./CarCards";
 import { carFilterConfig } from "./config";
+import type { StaticImageData } from "next/image";
 
 // Shared CarCard type
 export interface CarCardProps {
   carName: string;
-  carImage: string; // Consider using StaticImageData if imported
+  carImage: string | StaticImageData; 
   carClass: string;
   fuelType: string;
   doors: number;
@@ -96,11 +97,25 @@ const FilterSection: React.FC = () => {
         className="w-full pt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 
         lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 gap-4"
       >
-        {carFilterConfig.map((items: CarCardProps, index: number) => (
-          <div key={index} className="w-full">
-            <CarCards item={items} />
-          </div>
-        ))}
+        {carFilterConfig.map((item, index: number) => {
+          const mappedItem: CarCardProps = {
+            carName: item.carName,
+            carImage: item.carImage,
+            carClass: item.carClass,
+            fuelType: item.fuelType,
+            doors: item.doors,
+            people: item.personCary,
+            bags: item.bagCary,
+            isAC: item.IsAc,
+            priceDesk: item.bookingPrice.onDesk,
+            priceOnline: item.bookingPrice.online,
+          };
+          return (
+            <div key={index} className="w-full">
+              <CarCards item={mappedItem} />
+            </div>
+          );
+        })}
       </div>
     </div>
   );

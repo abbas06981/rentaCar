@@ -1,9 +1,9 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import React from "react";
 
 interface CarCardProps {
   carName: string;
-  carImage: string; // If using imported images, change this to StaticImageData
+  carImage: string | StaticImageData; // If using imported images, change this to StaticImageData
   carClass: string;
   fuelType: string;
   doors: number;

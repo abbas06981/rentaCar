@@ -5,10 +5,6 @@ import {
 
 } from "@mui/material";
 
-
-
-
-
 const BookingIncludes: React.FC = () => {
 
 

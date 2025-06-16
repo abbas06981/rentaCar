@@ -3,7 +3,7 @@
 import Link from "next/link";
 import React from "react";
 import BookingSteps from "./bookingSteps/BookingSteps";
-import FormTabs from "./formtabs/FormTabs";
+import FormTabs from "./formTabs/FormTabs";
 import FilterSection from "./filters";
 
 const Index = () => {
