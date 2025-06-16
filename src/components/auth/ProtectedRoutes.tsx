@@ -5,11 +5,7 @@ type Props = {
 };
 
 const ProtectedRoutes = ({ children }: Props) => {
-  return (
-    <>
-      <Layout>{children}</Layout>
-    </>
-  );
+  return <Layout>{children}</Layout>;
 };
 
 export default ProtectedRoutes;

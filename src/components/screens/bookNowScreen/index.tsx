@@ -3,10 +3,10 @@
 import Link from "next/link";
 import React from "react";
 import BookingSteps from "./bookingSteps/BookingSteps";
-import FormTabs from "./formTabs/FormTabs";
+import FormTabs from "./formtabs/FormTabs";
 import FilterSection from "./filters";
 
-const BookNow = () => {
+const Index = () => {
   return (
     <div className="w-full px-10 py-6">
       <div className="w-full flex text-[18px] font-medium ">
@@ -26,4 +26,4 @@ const BookNow = () => {
   );
 };
 
-export default BookNow;
+export default Index;

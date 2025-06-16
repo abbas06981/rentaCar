@@ -1,23 +1,27 @@
-import { Button } from "@mui/material";
 import React from "react";
+import {
+  Button,
+  FormControl,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
+} from "@mui/material";
 import FilterListAltIcon from "@mui/icons-material/FilterListAlt";
-
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
 import CarCards from "./CarCards";
+import { carFilterConfig } from "./config";
 
 const FilterSection = () => {
-  const [age, setAge] = React.useState("10");
+  const [sortOption, setSortOption] = React.useState("latest");
 
   const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value as string);
+    setSortOption(event.target.value);
   };
+
   return (
     <div className="w-full pt-8">
-      <div className=" flex justify-between items-center">
+      {/* Header Controls */}
+      <div className="flex justify-between items-center">
         <Button
-          type="submit"
           variant="outlined"
           size="small"
           sx={{
@@ -29,7 +33,6 @@ const FilterSection = () => {
             color: "#004d99",
             borderColor: "#004d99",
             textTransform: "none",
-
             whiteSpace: "nowrap",
           }}
           startIcon={<FilterListAltIcon />}
@@ -64,27 +67,24 @@ const FilterSection = () => {
             },
           }}
         >
-          <Select value={age} onChange={handleChange}>
-            <MenuItem value={10}>SORT BY LATEST</MenuItem>
-            <MenuItem value={20}>SORT BY LATEST</MenuItem>
-            <MenuItem value={30}>SORT BY PRICE LOW TO HIGH</MenuItem>
-            <MenuItem value={30}>SORT BY PRICE HIGH TO LOW</MenuItem>
+          <Select value={sortOption} onChange={handleChange}>
+            <MenuItem value="latest">SORT BY LATEST</MenuItem>
+            <MenuItem value="priceLow">SORT BY PRICE LOW TO HIGH</MenuItem>
+            <MenuItem value="priceHigh">SORT BY PRICE HIGH TO LOW</MenuItem>
           </Select>
         </FormControl>
       </div>
 
+      {/* Card Grid */}
       <div
-        className="w-full pt-6
-       grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 
-       lg:grid-cols-3 
-       xl:grid-cols-3
-       2xl:grid-cols-4
-       3xl:grid-cols-5
-        gap-4"
+        className="w-full pt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 
+        lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 gap-4"
       >
-        {[1, 2, 3, 4, 5].map((item) => {
-          return <CarCards key={item} />;
-        })}
+        {carFilterConfig.map((item, index: number) => (
+          <div key={index}>
+            <CarCards items={item} />
+          </div>
+        ))}
       </div>
     </div>
   );

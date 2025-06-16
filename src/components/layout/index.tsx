@@ -11,7 +11,6 @@ const Layout = ({ children }: Props) => {
     <div className="flex flex-col min-h-screen w-full overflow-hidden">
       <Header />
 
-   
       <main className="flex-1 overflow-auto min-h-[calc(100vh-80px]">
         {children}
       </main>
