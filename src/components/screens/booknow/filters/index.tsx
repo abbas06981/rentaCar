@@ -5,6 +5,7 @@ import FilterListAltIcon from "@mui/icons-material/FilterListAlt";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
+import CarCards from "./CarCards";
 const FilterSection = () => {
 
   const [age, setAge] = React.useState("10");
@@ -40,7 +41,13 @@ const FilterSection = () => {
           variant="outlined"
           size="small"
           sx={{
-            width: 300,
+            width: {
+              xs: "180px",
+              sm: "230px",
+              md: "300px",
+            
+              
+            },
             "& .MuiOutlinedInput-root": {
               borderRadius: "20px",
               "& fieldset": {
@@ -68,6 +75,20 @@ const FilterSection = () => {
 
           </Select>
         </FormControl>
+      </div>
+
+      <div className="w-full pt-6
+       grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 
+       lg:grid-cols-3 
+       xl:grid-cols-3
+       2xl:grid-cols-4
+       3xl:grid-cols-5
+        gap-4">
+     {
+      [1,2,3,4,5].map((item)=>{
+        return <CarCards key={item}/>
+      })
+     }
       </div>
     </div>
   );
