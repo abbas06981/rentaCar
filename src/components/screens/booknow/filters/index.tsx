@@ -1,9 +1,12 @@
+import { Button } from "@mui/material";
 import React from "react";
+import FilterListAltIcon from "@mui/icons-material/FilterListAlt";
 
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
 const FilterSection = () => {
-<<<<<<< Updated upstream
-  return <div className="w-full">FilterSection</div>;
-=======
+
   const [age, setAge] = React.useState("10");
 
   const handleChange = (event: SelectChangeEvent) => {
@@ -57,16 +60,18 @@ const FilterSection = () => {
           }}
         >
           <Select value={age} onChange={handleChange}>
+
             <MenuItem value={10}>SORT BY LATEST</MenuItem>
             <MenuItem value={20}>SORT BY LATEST</MenuItem>
             <MenuItem value={30}>SORT BY PRICE LOW TO HIGH</MenuItem>
             <MenuItem value={30}>SORT BY PRICE HIGH TO LOW</MenuItem>
+
           </Select>
         </FormControl>
       </div>
     </div>
   );
->>>>>>> Stashed changes
+
 };
 
 export default FilterSection;
