@@ -14,7 +14,7 @@ interface CarCardProps {
   priceOnline: number;
 }
 
-const CarCard = ({ items }: { items: CarCardProps }) => {
+const CarCards: React.FC<{ item: CarCardProps }> = ({ item }) => {
   const {
     carName,
     carImage,
@@ -26,7 +26,7 @@ const CarCard = ({ items }: { items: CarCardProps }) => {
     isAC,
     priceDesk,
     priceOnline,
-  } = items;
+  } = item;
 
   return (
     <div className="border border-blue-300 rounded-xl p-4 w-full max-w-sm mx-auto shadow hover:shadow-lg transition">
@@ -94,4 +94,4 @@ const CarCard = ({ items }: { items: CarCardProps }) => {
   );
 };
 
-export default CarCard;
+export default CarCards;

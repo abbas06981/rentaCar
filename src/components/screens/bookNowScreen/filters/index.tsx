@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import {
   Button,
@@ -10,10 +12,24 @@ import FilterListAltIcon from "@mui/icons-material/FilterListAlt";
 import CarCards from "./CarCards";
 import { carFilterConfig } from "./config";
 
-const FilterSection = () => {
-  const [sortOption, setSortOption] = React.useState("latest");
+// Shared CarCard type
+export interface CarCardProps {
+  carName: string;
+  carImage: string; // Consider using StaticImageData if imported
+  carClass: string;
+  fuelType: string;
+  doors: number;
+  people: number;
+  bags: number;
+  isAC: boolean;
+  priceDesk: number;
+  priceOnline: number;
+}
 
-  const handleChange = (event: SelectChangeEvent) => {
+const FilterSection: React.FC = () => {
+  const [sortOption, setSortOption] = React.useState<string>("latest");
+
+  const handleChange = (event: SelectChangeEvent<string>) => {
     setSortOption(event.target.value);
   };
 
@@ -80,9 +96,9 @@ const FilterSection = () => {
         className="w-full pt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 
         lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 gap-4"
       >
-        {carFilterConfig.map((item, index: number) => (
-          <div key={index}>
-            <CarCards items={item} />
+        {carFilterConfig.map((items: CarCardProps, index: number) => (
+          <div key={index} className="w-full">
+            <CarCards item={items} />
           </div>
         ))}
       </div>
