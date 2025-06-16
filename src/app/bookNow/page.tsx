@@ -1,10 +1,8 @@
-import React from 'react'
-import BookNow from '@/components/screens/bookNow'
+import React from "react";
+import BookNow from "@/components/screens/bookNowScreen";
 
 const page = () => {
-  return (
- <BookNow/>
-  )
-}
+  return <BookNow />;
+};
 
-export default page
+export default page;
