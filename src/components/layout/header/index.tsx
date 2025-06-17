@@ -24,12 +24,12 @@ const Header = () => {
         <Image src="/log2.svg" alt="logo" width={150} height={100} />
       </Link>{" "}
       <div className="flex gap-4 justify-start items-center">
-        <Link
+        {/* <Link
           href="/#"
           className="font-medium hover:text-[#f9b916] text-[16px]"
         >
           Manage Reservation
-        </Link>
+        </Link> */}
 
         <FormControl
           variant="standard"
@@ -42,13 +42,13 @@ const Header = () => {
             onChange={handleChange}
           >
             <MenuItem value="10">Eng</MenuItem>
-            <MenuItem value="20">Urdu</MenuItem>
+            <MenuItem value="20">Italian</MenuItem>
           </Select>
         </FormControl>
 
-        <Avatar sx={{ bgcolor: "transparent", cursor: "pointer" }}>
+        {/* <Avatar sx={{ bgcolor: "transparent", cursor: "pointer" }}>
           <AccountCircleIcon sx={{ color: "white", fontSize: 30 }} />
-        </Avatar>
+        </Avatar> */}
         <Button>
           <MenuSharpIcon sx={{ color: "white", fontSize: 35 }} />
         </Button>
