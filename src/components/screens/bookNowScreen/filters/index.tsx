@@ -16,7 +16,7 @@ import type { StaticImageData } from "next/image";
 // Shared CarCard type
 export interface CarCardProps {
   carName: string;
-  carImage: string | StaticImageData; 
+  carImage: string | StaticImageData;
   carClass: string;
   fuelType: string;
   doors: number;
@@ -95,7 +95,7 @@ const FilterSection: React.FC = () => {
       {/* Card Grid */}
       <div
         className="w-full pt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 
-        lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5 gap-4"
+        lg:grid-cols-3 xl:grid-cols-3  gap-8"
       >
         {carFilterConfig.map((item, index: number) => {
           const mappedItem: CarCardProps = {

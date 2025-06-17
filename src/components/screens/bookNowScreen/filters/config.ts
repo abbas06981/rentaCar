@@ -24,7 +24,7 @@ export const carFilterConfig = [
     carImage: car1Image,
   },
   {
-    carName: "Peugeot 108 automatic",
+    carName: "Citroen C3",
     similarCarOptions: [],
     carClass: "A",
     fuelType: "Unleaded",
@@ -39,7 +39,7 @@ export const carFilterConfig = [
     carImage: car2Image,
   },
   {
-    carName: "Peugeot 108 automatic",
+    carName: "Fiat Panda",
     similarCarOptions: [],
     carClass: "A",
     fuelType: "Unleaded",

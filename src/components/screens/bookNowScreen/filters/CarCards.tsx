@@ -1,5 +1,10 @@
 import Image, { StaticImageData } from "next/image";
 import React from "react";
+import AccountTreeIcon from "@mui/icons-material/AccountTree";
+import LocalGasStationIcon from "@mui/icons-material/LocalGasStation";
+import AirlineSeatReclineExtraIcon from "@mui/icons-material/AirlineSeatReclineExtra";
+import PeopleIcon from "@mui/icons-material/People";
+import CasesIcon from "@mui/icons-material/Cases";
 
 interface CarCardProps {
   carName: string;
@@ -29,62 +34,108 @@ const CarCards: React.FC<{ item: CarCardProps }> = ({ item }) => {
   } = item;
 
   return (
-    <div className="border border-blue-300 rounded-xl p-4 w-full max-w-sm mx-auto shadow hover:shadow-lg transition">
+    <div
+      className=" border-[#308ae4] border-2 rounded-xl 
+    text-[#043d71] p-8 w-full shadow hover:shadow-lg transition-all"
+    >
       {/* Header */}
-      <div className="text-blue-800 font-bold text-lg">{carName}</div>
-      <div className="text-xs text-gray-600">or similar (Available)</div>
-      <div className="text-xs text-right font-semibold text-blue-800">
-        GROUP {carClass} - MBMR
+      <div className="  font-bold text-[20px]">{carName}</div>
+      <div className="flex items-center justify-between text-xs  font-semibold pt-5">
+        <span className=" text-[#308ae4] font-semibold text-[14px]">
+          or similar (Available)
+        </span>
+        <span className="   font-semibold text-[14px]">
+          GROUP {carClass} - MBMR
+        </span>
       </div>
-
       {/* Features */}
-      <div className="flex items-center justify-between text-xs text-gray-600 border-b pb-2 mt-2">
-        <span>M</span>
-        <span>{fuelType}</span>
-        <span>{doors} 🚪</span>
-        <span>{people} 👤</span>
-        <span>{bags} 🧳</span>
+      <div
+        className="flex items-center justify-between border-t-2
+       border-t-[#004d99] pt-1  mt-2 text-[#004d99] font-bold text-sm"
+      >
+        {" "}
+        <span className="flex items-center gap-0.5 ">
+          {" "}
+          <AccountTreeIcon
+            sx={{
+              fontSize: "17px",
+            }}
+          />{" "}
+          A
+        </span>
+        <span className="flex items-center gap-0.5 ">
+          <LocalGasStationIcon
+            sx={{
+              fontSize: "17px",
+            }}
+          />
+          {fuelType}
+        </span>
+        <span className="flex items-center gap-0.5 ">
+          <AirlineSeatReclineExtraIcon
+            sx={{
+              fontSize: "17px",
+            }}
+          />
+          {doors}
+        </span>
+        <span className="flex items-center gap-0.5 ">
+          <PeopleIcon
+            sx={{
+              fontSize: "17px",
+            }}
+          />
+          {people}
+        </span>
+        <span className="flex items-center gap-0.5 ">
+          <CasesIcon
+            sx={{
+              fontSize: "17px",
+            }}
+          />
+          {bags}
+        </span>
         <span>{isAC ? "AC" : "No AC"}</span>
       </div>
 
       {/* Image */}
-      <div className="flex justify-center my-3">
-        <Image
-          src={carImage}
-          alt={carName}
-          width={192} // 48 x 4 = 192px
-          height={112} // 28 x 4 = 112px
-          className="w-48 h-28 object-contain"
-        />
-      </div>
-
+      <Image
+        src={carImage}
+        alt={carName}
+        width={500} // 48 x 4 = 192px
+        height={500} // 28 x 4 = 112px
+        className="h-64 object-contain w-full"
+      />
       {/* Prices */}
-      <div className="text-center text-sm font-semibold text-gray-700 border-t pt-2">
+      <div
+        className="text-center text-sm  border-b-2
+       border-b-[#004d99]  font-bold text-[20px] pb-2"
+      >
         Total Price for 1 Day
       </div>
-      <div className="flex justify-between mt-1 text-sm font-bold text-gray-800">
+      <div className="flex justify-between mt-1  font-bold text-[24px] ">
         <div className="text-center">
-          <div>{priceDesk?.toFixed(2)}€</div>
-          <div className="text-xs font-normal">
-            {priceDesk?.toFixed(2)} € / Daily
+          <div>{priceDesk}€</div>
+          <div className=" text-[#308ae4] text-[18px]">
+            {priceDesk} € / Daily
           </div>
         </div>
         <div className="text-center">
-          <div>{priceOnline?.toFixed(2)}€</div>
-          <div className="text-xs font-normal">
-            {priceOnline?.toFixed(2)} € / Daily
+          <div className="">{priceOnline}€</div>
+          <div className="text-[#308ae4] text-[18px] ">
+            {priceOnline} € / Daily
           </div>
         </div>
       </div>
 
       {/* Buttons */}
-      <div className="flex justify-between mt-4">
-        <button className="px-4 py-2 text-sm border border-blue-700 text-blue-700 rounded-md hover:bg-blue-50">
+      <div className="flex justify-between mt-4 font-semibold text-[14px]">
+        <button className="px-4 py-2   border-2 border-[#043d71] rounded-md shadow-2xl  hover:scale-105  transition-all cursor-pointer">
           BOOK NOW
           <br />
           Pay On Desk
         </button>
-        <button className="px-4 py-2 text-sm bg-blue-700 text-white rounded-md hover:bg-blue-800">
+        <button className="px-4 py-2 bg-[#043d71]  text-white rounded-md  hover:scale-105 shadow-2xl  transition-all cursor-pointer">
           BOOK NOW
           <br />
           Pay Online
