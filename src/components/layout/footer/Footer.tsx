@@ -6,7 +6,7 @@ const Footer = () => {
       className="w-full flex justify-between
      bg-black text-white px-8 min-h-[80px] items-center"
     >
-      Footersss
+      Footer
     </div>
   );
 };

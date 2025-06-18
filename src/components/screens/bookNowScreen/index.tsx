@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import React from "react";
-import BookingSteps from "./bookingSteps/BookingSteps";
-import FormTabs from "./formTabs/FormTabs";
+import BookingSteps from "./bookingSteps";
+import FormTabs from "./formTabs";
 import FilterSection from "./filters";
 
 const Index = () => {

@@ -2,13 +2,12 @@
 
 import React from "react";
 import {
-  Button,
   FormControl,
   MenuItem,
   Select,
   SelectChangeEvent,
 } from "@mui/material";
-import FilterListAltIcon from "@mui/icons-material/FilterListAlt";
+
 import CarCards from "./CarCards";
 import { carFilterConfig } from "./config";
 import type { StaticImageData } from "next/image";

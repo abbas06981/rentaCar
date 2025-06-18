@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const DiscoverNew = () => {
-  return (
-    <div>DiscoverNew</div>
-  )
-}
+  return <div>DiscoverNew</div>;
+};
 
-export default DiscoverNew
+export default DiscoverNew;
