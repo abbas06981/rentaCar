@@ -32,7 +32,7 @@ const Header = () => {
         </FormControl>
 
         <Button>
-          <MenuSharpIcon sx={{ color: "black", fontSize: 35 }} />
+          <MenuSharpIcon sx={{ color: "#F58220", fontSize: 35 }} />
         </Button>
       </div>
     </div>

@@ -36,7 +36,7 @@ const CarCards: React.FC<{ item: CarCardProps }> = ({ item }) => {
 
   return (
     <div
-      className=" border-[#308ae4] border-2 rounded-xl 
+      className=" border-[#F58220] border-2 rounded-xl 
     text-[#043d71] p-8 w-full shadow hover:shadow-lg transition-all"
     >
       {/* Header */}
@@ -52,7 +52,7 @@ const CarCards: React.FC<{ item: CarCardProps }> = ({ item }) => {
       {/* Features */}
       <div
         className="flex items-center justify-between border-t-2
-       border-t-[#004d99] pt-1  mt-2 text-[#004d99] font-bold text-sm"
+       border-t-[#F58220] pt-1  mt-2 text-[#004d99] font-bold text-sm"
       >
         {" "}
         <span className="flex items-center gap-0.5 ">
@@ -110,7 +110,7 @@ const CarCards: React.FC<{ item: CarCardProps }> = ({ item }) => {
       {/* Prices */}
       <div
         className="text-center text-sm  border-b-2
-       border-b-[#004d99]  font-bold text-[20px] pb-2"
+       border-b-[#F58220]  font-bold text-[20px] pb-2"
       >
         Total Price for 1 Day
       </div>
@@ -141,9 +141,9 @@ const CarCards: React.FC<{ item: CarCardProps }> = ({ item }) => {
             py: 1,
             fontWeight: "bold",
             textTransform: "none",
-            backgroundColor: "#004B9C",
+            backgroundColor: "#F58220",
             "&:hover": {
-              backgroundColor: "#0086ff",
+              backgroundColor: "#F58220",
               color: "white",
               scale: "1.1",
               transition: "all 0.3s ease",

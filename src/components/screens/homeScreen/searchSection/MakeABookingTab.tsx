@@ -113,7 +113,7 @@ const MakeABookingTab: React.FC = () => {
       onSubmit={handleSubmit}
       sx={{
         p: 0,
-        backgroundColor: "#fff",
+        backgroundColor: "#F58220",
         borderRadius: 2,
         display: "flex",
         flexDirection: "column",
@@ -128,7 +128,7 @@ const MakeABookingTab: React.FC = () => {
         }}
       >
         <Box flex={1}>
-          <Typography fontWeight="bold" color="primary" gutterBottom>
+          <Typography fontWeight="bold" color="white" gutterBottom>
             Pickup Location:
           </Typography>
           <TextField
@@ -143,7 +143,7 @@ const MakeABookingTab: React.FC = () => {
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
-                  <SearchIcon color="primary" />
+                  <SearchIcon color="white" />
                 </InputAdornment>
               ),
             }}
@@ -157,7 +157,7 @@ const MakeABookingTab: React.FC = () => {
         </Box>
 
         <Box flex={1}>
-          <Typography fontWeight="bold" color="primary" gutterBottom>
+          <Typography fontWeight="bold" color="white" gutterBottom>
             Pickup Date | Time:
           </Typography>
           <DateTimePicker
@@ -175,7 +175,7 @@ const MakeABookingTab: React.FC = () => {
         </Box>
 
         <Box flex={1}>
-          <Typography fontWeight="bold" color="primary" gutterBottom>
+          <Typography fontWeight="bold" color="white" gutterBottom>
             Drop-off Date | Time:
           </Typography>
           <DateTimePicker
@@ -199,7 +199,7 @@ const MakeABookingTab: React.FC = () => {
           value="true"
           control={<Radio checked={formData.differentDropOff} size="small" />}
           label={
-            <Typography fontWeight="bold" color="primary">
+            <Typography fontWeight="bold" color="white">
               Different Drop-Off Location
             </Typography>
           }
@@ -225,7 +225,7 @@ const MakeABookingTab: React.FC = () => {
         {/* Drop-off Location Column */}
         {formData.differentDropOff && (
           <Box flex={1}>
-            <Typography fontWeight="bold" color="primary" gutterBottom>
+            <Typography fontWeight="bold" color="white" gutterBottom>
               Drop-off Location:
             </Typography>
             <TextField
@@ -240,7 +240,7 @@ const MakeABookingTab: React.FC = () => {
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
-                    <SearchIcon color="primary" />
+                    <SearchIcon />
                   </InputAdornment>
                 ),
               }}
@@ -256,7 +256,7 @@ const MakeABookingTab: React.FC = () => {
 
         {/* Discount Code Column */}
         <Box flex={1}>
-          <Typography fontWeight="bold" color="primary" gutterBottom>
+          <Typography fontWeight="bold" color="white" gutterBottom>
             Discount Code:
           </Typography>
           <TextField
@@ -290,9 +290,9 @@ const MakeABookingTab: React.FC = () => {
               py: 1,
               fontWeight: "bold",
               textTransform: "none",
-              backgroundColor: "#004B9C",
+              backgroundColor: "#000000",
               "&:hover": {
-                backgroundColor: "#0086ff",
+                backgroundColor: "#000000",
                 color: "white",
                 scale: "1.1",
                 transition: "all",

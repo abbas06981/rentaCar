@@ -8,9 +8,9 @@ import FilterSection from "./filters";
 
 const Index = () => {
   return (
-    <div className="w-full px-10 py-6">
+    <div className="w-full  px-2 xs:px-2 sm:px-8 py-6">
       <div className="w-full flex text-[18px] font-medium ">
-        <Link href="/" className="pr-1 text-[#85c0ff] hover:text-[#f9b916]">
+        <Link href="/" className="pr-1 text-[#F58220] hover:text-[#f9b916]">
           Home
         </Link>
         <span className="pr-1 text-[#16385c]">/</span>

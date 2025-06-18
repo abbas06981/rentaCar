@@ -8,7 +8,7 @@ import Box from "@mui/material/Box";
 const Index = () => {
   return (
     <div className="w-full flex justify-center items-center">
-      <div className="bg-white w-[80%] mt-32 rounded-xl p-1">
+      <div className="bg-[#F58220] w-[80%] mt-32 rounded-xl p-1">
         <Box sx={{ width: "100%" }}>
           <Box sx={{ p: 2 }}>
             <MakeABooking />
