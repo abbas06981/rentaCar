@@ -17,6 +17,7 @@ export const carFilterConfig = [
       onDesk: 3876,
     },
     carImage: car1newImage,
+    date: "2024-06-10",
   },
   {
     carName: "Citroen C3",
@@ -28,10 +29,11 @@ export const carFilterConfig = [
     bagCary: 1,
     IsAc: true,
     bookingPrice: {
-      online: 3600,
-      onDesk: 3876,
+      online: 3400,
+      onDesk: 3675,
     },
     carImage: car2newImage,
+    date: "2024-06-06",
   },
   {
     carName: "Fiat Panda",
@@ -43,10 +45,11 @@ export const carFilterConfig = [
     bagCary: 1,
     IsAc: true,
     bookingPrice: {
-      online: 3600,
-      onDesk: 3876,
+      online: 3200,
+      onDesk: 3500,
     },
     carImage: car3newImage,
+    date: "2024-06-01",
   },
   {
     carName: "Peugeot 108 automatic",
@@ -62,6 +65,7 @@ export const carFilterConfig = [
       onDesk: 3876,
     },
     carImage: car1newImage,
+    date: "2024-05-28",
   },
   {
     carName: "Citroen C3",
@@ -73,10 +77,11 @@ export const carFilterConfig = [
     bagCary: 1,
     IsAc: true,
     bookingPrice: {
-      online: 3600,
-      onDesk: 3876,
+      online: 3400,
+      onDesk: 3675,
     },
     carImage: car2newImage,
+    date: "2024-05-20",
   },
   {
     carName: "Fiat Panda",
@@ -88,10 +93,11 @@ export const carFilterConfig = [
     bagCary: 1,
     IsAc: true,
     bookingPrice: {
-      online: 3600,
-      onDesk: 3876,
+      online: 3200,
+      onDesk: 3500,
     },
     carImage: car3newImage,
+    date: "2024-05-15",
   },
   {
     carName: "Peugeot 108 automatic",
@@ -107,6 +113,7 @@ export const carFilterConfig = [
       onDesk: 3876,
     },
     carImage: car1newImage,
+    date: "2024-05-10",
   },
   {
     carName: "Citroen C3",
@@ -118,10 +125,11 @@ export const carFilterConfig = [
     bagCary: 1,
     IsAc: true,
     bookingPrice: {
-      online: 3600,
-      onDesk: 3876,
+      online: 3400,
+      onDesk: 3675,
     },
     carImage: car2newImage,
+    date: "2024-05-05",
   },
   {
     carName: "Fiat Panda",
@@ -133,9 +141,10 @@ export const carFilterConfig = [
     bagCary: 1,
     IsAc: true,
     bookingPrice: {
-      online: 3600,
-      onDesk: 3876,
+      online: 3200,
+      onDesk: 3500,
     },
     carImage: car3newImage,
+    date: "2024-05-01",
   },
 ];

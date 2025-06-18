@@ -32,6 +32,25 @@ const FilterSection: React.FC = () => {
     setSortOption(event.target.value);
   };
 
+  const sortedCars = React.useMemo(() => {
+    const sorted = [...carFilterConfig];
+    switch (sortOption) {
+      case "priceLow":
+        return sorted.sort(
+          (a, b) => a.bookingPrice.online - b.bookingPrice.online
+        );
+      case "priceHigh":
+        return sorted.sort(
+          (a, b) => b.bookingPrice.online - a.bookingPrice.online
+        );
+      case "latest":
+      default:
+        return sorted.sort(
+          (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+        );
+    }
+  }, [sortOption]);
+
   return (
     <div className="w-full pt-8">
       {/* Header Controls */}
@@ -74,9 +93,9 @@ const FilterSection: React.FC = () => {
       {/* Card Grid */}
       <div
         className="w-full pt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 
-        lg:grid-cols-3 xl:grid-cols-3  gap-8"
+        lg:grid-cols-3 xl:grid-cols-3 gap-8"
       >
-        {carFilterConfig.map((item, index: number) => {
+        {sortedCars.map((item, index: number) => {
           const mappedItem: CarCardProps = {
             carName: item.carName,
             carImage: item.carImage,
