@@ -26,14 +26,14 @@ const Header = () => {
   return (
     <div
       className="w-full flex justify-between
-     bg-white text-black px-8 py-3  items-center shadow-2xs shadow-[#874a4a]"
+     bg-white text-black px-8 py-3  items-center shadow-2xs shadow-[#201d1d] "
     >
       <Link href="/">
         <Image
           src="/homeIcons/logo3.jpg"
           alt="logo"
           width={200}
-          height={200}
+          height={150}
           className="rounded-2xl"
         />
       </Link>{" "}
