@@ -49,14 +49,14 @@ const FilterSection: React.FC = () => {
             "& .MuiOutlinedInput-root": {
               borderRadius: "20px",
               "& fieldset": {
-                borderColor: "#004d99",
+                borderColor: "#F58220",
                 borderWidth: "2px",
               },
               "&:hover fieldset": {
-                borderColor: "#003366",
+                borderColor: "#F58220",
               },
               "&.Mui-focused fieldset": {
-                borderColor: "#002244",
+                borderColor: "#F58220",
               },
             },
             "& .MuiSelect-outlined": {
