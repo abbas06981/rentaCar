@@ -26,10 +26,16 @@ const Header = () => {
   return (
     <div
       className="w-full flex justify-between
-     bg-blue-900 text-white px-8 h-[80px] items-center"
+     bg-white text-black px-8 py-3  items-center"
     >
       <Link href="/">
-        <Image src="/log2.svg" alt="logo" width={150} height={100} />
+        <Image
+          src="/homeIcons/logo3.jpg"
+          alt="logo"
+          width={200}
+          height={200}
+          className="rounded-2xl"
+        />
       </Link>{" "}
       <div className="flex gap-4 justify-start items-center">
         {/* <Link
@@ -41,14 +47,10 @@ const Header = () => {
 
         <FormControl
           variant="standard"
-          sx={{ m: 1, minWidth: 120 }}
-          className="text-white"
+          sx={{ m: 1, minWidth: 120, color: "black" }}
+          className=""
         >
-          <Select
-            sx={{ color: "white" }}
-            value={language}
-            onChange={handleChange}
-          >
+          <Select sx={{ color: "" }} value={language} onChange={handleChange}>
             <MenuItem value="10">Eng</MenuItem>
             <MenuItem value="20">Italian</MenuItem>
           </Select>
