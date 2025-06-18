@@ -76,7 +76,7 @@ const BookingForm: React.FC = () => {
       onSubmit={handleSubmit}
       sx={{
         p: 2,
-        backgroundColor: "#53adff",
+        backgroundColor: "#FF6B00",
         borderRadius: 2,
         display: "flex",
         flexDirection: "column",

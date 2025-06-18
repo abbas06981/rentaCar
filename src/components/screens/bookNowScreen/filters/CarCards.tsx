@@ -5,6 +5,7 @@ import LocalGasStationIcon from "@mui/icons-material/LocalGasStation";
 import AirlineSeatReclineExtraIcon from "@mui/icons-material/AirlineSeatReclineExtra";
 import PeopleIcon from "@mui/icons-material/People";
 import CasesIcon from "@mui/icons-material/Cases";
+import { Button } from "@mui/material";
 
 interface CarCardProps {
   carName: string;
@@ -129,17 +130,29 @@ const CarCards: React.FC<{ item: CarCardProps }> = ({ item }) => {
       </div>
 
       {/* Buttons */}
-      <div className="flex justify-between mt-4 font-semibold text-[14px]">
-        <button className="px-4 py-2   border-2 border-[#043d71] rounded-md shadow-2xl  hover:scale-105  transition-all cursor-pointer">
+      <div className="flex justify-center mt-4 font-semibold text-[14px]">
+        <Button
+          type="submit"
+          variant="contained"
+          size="small"
+          sx={{
+            borderRadius: "999px",
+            px: 8,
+            py: 1,
+            fontWeight: "bold",
+            textTransform: "none",
+            backgroundColor: "#004B9C",
+            "&:hover": {
+              backgroundColor: "#0086ff",
+              color: "white",
+              scale: "1.1",
+              transition: "all 0.3s ease",
+            },
+            whiteSpace: "nowrap",
+          }}
+        >
           BOOK NOW
-          <br />
-          Pay On Desk
-        </button>
-        <button className="px-4 py-2 bg-[#043d71]  text-white rounded-md  hover:scale-105 shadow-2xl  transition-all cursor-pointer">
-          BOOK NOW
-          <br />
-          Pay Online
-        </button>
+        </Button>
       </div>
     </div>
   );
