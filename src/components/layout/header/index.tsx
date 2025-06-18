@@ -26,7 +26,7 @@ const Header = () => {
   return (
     <div
       className="w-full flex justify-between
-     bg-white text-black px-8 py-3  items-center"
+     bg-white text-black px-8 py-3  items-center shadow-2xs shadow-[#874a4a]"
     >
       <Link href="/">
         <Image
@@ -60,7 +60,7 @@ const Header = () => {
           <AccountCircleIcon sx={{ color: "white", fontSize: 30 }} />
         </Avatar> */}
         <Button>
-          <MenuSharpIcon sx={{ color: "white", fontSize: 35 }} />
+          <MenuSharpIcon sx={{ color: "black ", fontSize: 35 }} />
         </Button>
       </div>
     </div>
