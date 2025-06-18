@@ -5,7 +5,6 @@ import {
   Select,
   SelectChangeEvent,
 } from "@mui/material";
-
 import CarCards from "./CarCards";
 import { carFilterConfig } from "./config";
 import type { StaticImageData } from "next/image";
@@ -88,7 +87,6 @@ const FilterSection: React.FC = () => {
         </FormControl>
       </div>
 
-      {/* Card Grid */}
       <div
         className="w-full pt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 
         lg:grid-cols-3 xl:grid-cols-3 gap-8"

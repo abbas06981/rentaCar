@@ -44,7 +44,7 @@ export default function BookingModal({
   info,
   open,
   handleClose,
-}: BookingModalProps) {
+}: Readonly<BookingModalProps>) {
   return (
     <Modal open={open} onClose={handleClose}>
       <Box sx={modalStyle} className="bg-white p-4 sm:p-6 relative shadow-lg">
