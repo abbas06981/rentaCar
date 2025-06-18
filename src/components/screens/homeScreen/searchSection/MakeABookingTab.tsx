@@ -46,10 +46,6 @@ const MakeABookingTab: React.FC = () => {
     discountCode: "",
   });
 
-  // const [errors, setErrors] = useState<
-  //   Partial<Record<keyof FormValues, string>>
-  // >({});
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
@@ -74,36 +70,9 @@ const MakeABookingTab: React.FC = () => {
     }));
   };
 
-  // const validate = (): boolean => {
-  //   const newErrors: Partial<Record<keyof FormValues, string>> = {};
-
-  //   if (!formData.pickupLocation)
-  //     newErrors.pickupLocation = "Pickup location is required";
-  //   if (!formData.pickupDateTime)
-  //     newErrors.pickupDateTime = "Pickup date/time is required";
-  //   if (!formData.dropoffDateTime) {
-  //     newErrors.dropoffDateTime = "Drop-off date/time is required";
-  //   } else if (
-  //     formData.pickupDateTime &&
-  //     formData.dropoffDateTime <= formData.pickupDateTime
-  //   ) {
-  //     newErrors.dropoffDateTime = "Drop-off must be after pickup time";
-  //   }
-
-  //   if (formData.differentDropOff && !formData.dropoffLocation) {
-  //     newErrors.dropoffLocation = "Drop-off location is required";
-  //   }
-
-  //   setErrors(newErrors);
-  //   return Object.keys(newErrors).length === 0;
-  // };
-
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // if (validate()) {
-    //   console.log("Form Data:", formData);
-    //   // Submit logic here
-    // }
+
     router.push("/bookNow");
   };
 
@@ -119,7 +88,6 @@ const MakeABookingTab: React.FC = () => {
         flexDirection: "column",
       }}
     >
-      {/* Pickup Location, Pickup Date, Drop-off Date */}
       <Box
         sx={{
           display: "flex",

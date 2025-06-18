@@ -12,7 +12,6 @@ import CarCards from "./CarCards";
 import { carFilterConfig } from "./config";
 import type { StaticImageData } from "next/image";
 
-// Shared CarCard type
 export interface CarCardProps {
   carName: string;
   carImage: string | StaticImageData;
