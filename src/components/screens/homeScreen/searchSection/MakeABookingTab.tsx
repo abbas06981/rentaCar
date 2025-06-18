@@ -143,7 +143,7 @@ const MakeABookingTab: React.FC = () => {
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
-                  <SearchIcon color="white" />
+                  <SearchIcon />
                 </InputAdornment>
               ),
             }}
