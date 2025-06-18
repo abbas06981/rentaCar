@@ -25,7 +25,7 @@
 /* For Firefox */
 html {
   scrollbar-width: thin;
-  scrollbar-color: #2670c5 #ecf4f5;
+  scrollbar-color: #FF6B00 #000000;
 }
 
 @theme inline {

@@ -38,25 +38,6 @@ const FilterSection: React.FC = () => {
     <div className="w-full pt-8">
       {/* Header Controls */}
       <div className="flex justify-between items-center">
-        <Button
-          variant="outlined"
-          size="small"
-          sx={{
-            borderRadius: "999px",
-            px: 5,
-            py: 1,
-            borderWidth: "2px",
-            fontWeight: "bold",
-            color: "#004d99",
-            borderColor: "#004d99",
-            textTransform: "none",
-            whiteSpace: "nowrap",
-          }}
-          startIcon={<FilterListAltIcon />}
-        >
-          FILTERS
-        </Button>
-
         <FormControl
           variant="outlined"
           size="small"
