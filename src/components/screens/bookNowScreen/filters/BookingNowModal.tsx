@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Image, { StaticImageData } from "next/image";
 import { Modal, Box, Button } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
@@ -45,6 +46,72 @@ export default function BookingModal({
   open,
   handleClose,
 }: Readonly<BookingModalProps>) {
+  const [form, setForm] = useState({
+    fullName: "",
+    email: "",
+    phone: "",
+    license: "",
+    landline: "",
+  });
+
+  const [errors, setErrors] = useState({
+    fullName: "",
+    email: "",
+    phone: "",
+    license: "",
+    landline: "",
+  });
+
+  const validate = () => {
+    let valid = true;
+    const newErrors = {
+      fullName: "",
+      email: "",
+      phone: "",
+      license: "",
+      landline: "",
+    };
+
+    if (!form.fullName.trim()) {
+      newErrors.fullName = "Full Name is required";
+      valid = false;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+      newErrors.email = "Enter a valid email";
+      valid = false;
+    }
+
+    if (!/^\d{10,15}$/.test(form.phone)) {
+      newErrors.phone = "Enter a valid phone number (10–15 digits)";
+      valid = false;
+    }
+
+    if (!form.license.trim()) {
+      newErrors.license = "License number is required";
+      valid = false;
+    }
+
+    if (form.landline && !/^\d{6,15}$/.test(form.landline)) {
+      newErrors.landline = "Enter a valid landline number";
+      valid = false;
+    }
+
+    setErrors(newErrors);
+    return valid;
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = () => {
+    if (validate()) {
+      console.log("Form submitted:", form);
+      handleClose();
+    }
+  };
+
   return (
     <Modal open={open} onClose={handleClose}>
       <Box sx={modalStyle} className="bg-white p-4 sm:p-6 relative shadow-lg">
@@ -127,26 +194,71 @@ export default function BookingModal({
 
         <h3 className="font-semibold mb-2">Driver Details</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-          <input
-            type="text"
-            placeholder="Full Name"
-            className="p-2 border border-gray-300 rounded"
-          />
-          <input
-            type="email"
-            placeholder="Email"
-            className="p-2 border border-gray-300 rounded"
-          />
-          <input
-            type="tel"
-            placeholder="Phone"
-            className="p-2 border border-gray-300 rounded"
-          />
-          <input
-            type="text"
-            placeholder="License Number"
-            className="p-2 border border-gray-300 rounded"
-          />
+          <div>
+            <input
+              type="text"
+              name="fullName"
+              placeholder="Full Name"
+              value={form.fullName}
+              onChange={handleChange}
+              className="p-2 border border-gray-300 rounded w-full"
+            />
+            {errors.fullName && (
+              <p className="text-red-500 text-xs">{errors.fullName}</p>
+            )}
+          </div>
+          <div>
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={form.email}
+              onChange={handleChange}
+              className="p-2 border border-gray-300 rounded w-full"
+            />
+            {errors.email && (
+              <p className="text-red-500 text-xs">{errors.email}</p>
+            )}
+          </div>
+          <div>
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Mobile Number"
+              value={form.phone}
+              onChange={handleChange}
+              className="p-2 border border-gray-300 rounded w-full"
+            />
+            {errors.phone && (
+              <p className="text-red-500 text-xs">{errors.phone}</p>
+            )}
+          </div>
+          <div>
+            <input
+              type="text"
+              name="license"
+              placeholder="License Number"
+              value={form.license}
+              onChange={handleChange}
+              className="p-2 border border-gray-300 rounded w-full"
+            />
+            {errors.license && (
+              <p className="text-red-500 text-xs">{errors.license}</p>
+            )}
+          </div>
+          <div className="sm:col-span-2">
+            <input
+              type="tel"
+              name="landline"
+              placeholder="Phone or Landline Number"
+              value={form.landline}
+              onChange={handleChange}
+              className="p-2 border border-gray-300 rounded w-full"
+            />
+            {errors.landline && (
+              <p className="text-red-500 text-xs">{errors.landline}</p>
+            )}
+          </div>
         </div>
 
         <h3 className="font-semibold mb-2">Extras (Optional)</h3>
@@ -162,21 +274,9 @@ export default function BookingModal({
           </label>
         </div>
 
-        <h3 className="font-semibold mb-2">Payment Method</h3>
-        <div className="flex flex-col gap-2 mb-6">
-          <label className="inline-flex items-center">
-            <input type="radio" name="payment" className="mr-2" /> Credit /
-            Debit Card
-          </label>
-          <label className="inline-flex items-center">
-            <input type="radio" name="payment" className="mr-2" /> Cash on
-            Pickup
-          </label>
-        </div>
-
         <div className="flex justify-center">
           <Button
-            type="submit"
+            type="button"
             variant="contained"
             size="small"
             sx={{
@@ -195,7 +295,7 @@ export default function BookingModal({
               },
               whiteSpace: "nowrap",
             }}
-            onClick={handleClose}
+            onClick={handleSubmit}
           >
             Confirm Booking
           </Button>
