@@ -119,7 +119,7 @@ export default function BookingModal({
   return (
     <Modal open={open} onClose={handleClose}>
       <Box sx={modalStyle} className="bg-white p-4 sm:p-6 relative shadow-lg">
-        <div className="p-4 sm:p-6 flex flex-col bg-white sticky top-0 z-10">
+        <div className="p-4 sm:p-2 flex flex-col bg-white sticky top-0 z-10">
           <div className="flex justify-end">
             <Button
               onClick={handleClose}
@@ -144,7 +144,7 @@ export default function BookingModal({
             </Button>
           </div>
 
-          <div className="overflow-y-auto px-4 sm:px-6 pb-6 pt-2 flex-1 bg-white">
+          <div className="overflow-y-auto px-4 sm:px-6  pt-3 flex-1 bg-white">
             <Image
               src={info.carImage}
               alt={info.carName}
@@ -153,54 +153,61 @@ export default function BookingModal({
               className="h-56 sm:h-64 object-contain w-full mb-4"
             />
 
-            <h2 className="text-xl font-semibold text-[#043d71]">
+            <div className="  font-bold text-[20px] text-[#d37a2e]">
               {info.carName}
-            </h2>
-            <p className="text-sm text-gray-600 mb-4">
-              • {info.people} seats • {info.fuelType} • Class: {info.carClass}
-            </p>
+            </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2 border-t-2 border-t-[#d37a2e] pt-2 mt-2 text-[#004d99] font-bold text-sm mb-4">
               <span className="flex items-center gap-1">
                 <AccountTreeIcon sx={{ fontSize: "17px" }} /> {info.carClass}
               </span>
               <span className="flex items-center gap-1">
-                <LocalGasStationIcon sx={{ fontSize: "17px" }} />{" "}
+                <LocalGasStationIcon
+                  sx={{ fontSize: "17px", color: "#d37a2e" }}
+                />{" "}
                 {info.fuelType}
               </span>
               <span className="flex items-center gap-1">
-                <AirlineSeatReclineExtraIcon sx={{ fontSize: "17px" }} />{" "}
+                <AirlineSeatReclineExtraIcon
+                  sx={{ fontSize: "17px", color: "#d37a2e" }}
+                />{" "}
                 {info.doors}
               </span>
               <span className="flex items-center gap-1">
-                <PeopleIcon sx={{ fontSize: "17px" }} /> {info.people}
+                <PeopleIcon sx={{ fontSize: "17px", color: "#d37a2e" }} />{" "}
+                {info.people}
               </span>
               <span className="flex items-center gap-1">
-                <CasesIcon sx={{ fontSize: "17px" }} /> {info.bags}
+                <CasesIcon sx={{ fontSize: "17px", color: "#d37a2e" }} />{" "}
+                {info.bags}
               </span>
               <span>{info.isAC ? "AC" : "No AC"}</span>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
               <div>
-                <label className="text-sm font-medium">Start Date</label>
+                <label className="text-sm font-medium text-[#d37a2e]">
+                  Start Date
+                </label>
                 <input
                   type="datetime-local"
-                  className="w-full mt-1 p-2 border border-gray-300 rounded"
+                  className="w-full mt-1 p-2 border border-gray-300 rounded text-[#959a9f]"
                   defaultValue="2024-05-24T10:00"
                 />
               </div>
               <div>
-                <label className="text-sm font-medium">End Date</label>
+                <label className="text-sm font-medium text-[#d37a2e]">
+                  End Date
+                </label>
                 <input
                   type="datetime-local"
-                  className="w-full mt-1 p-2 border border-gray-300 rounded"
+                  className="w-full mt-1 p-2 border border-gray-300 rounded text-[#959a9f]"
                   defaultValue="2024-05-26T10:00"
                 />
               </div>
             </div>
 
-            <h3 className="font-semibold mb-2">Driver Details</h3>
+            <h3 className="font-bold mb-2 text-[#d37a2e]">Driver Details</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
               <div>
                 <input
@@ -212,7 +219,7 @@ export default function BookingModal({
                   className="p-2 border border-gray-300 rounded w-full"
                 />
                 {errors.fullName && (
-                  <p className="text-red-500 text-xs">{errors.fullName}</p>
+                  <p className="text-red-700 text-sm">{errors.fullName}</p>
                 )}
               </div>
               <div>
@@ -225,7 +232,7 @@ export default function BookingModal({
                   className="p-2 border border-gray-300 rounded w-full"
                 />
                 {errors.email && (
-                  <p className="text-red-500 text-xs">{errors.email}</p>
+                  <p className="text-red-700 text-sm">{errors.email}</p>
                 )}
               </div>
               <div>
@@ -238,7 +245,7 @@ export default function BookingModal({
                   className="p-2 border border-gray-300 rounded w-full"
                 />
                 {errors.phone && (
-                  <p className="text-red-500 text-xs">{errors.phone}</p>
+                  <p className="text-red-700 text-sm">{errors.phone}</p>
                 )}
               </div>
               <div>
@@ -251,7 +258,7 @@ export default function BookingModal({
                   className="p-2 border border-gray-300 rounded w-full"
                 />
                 {errors.license && (
-                  <p className="text-red-500 text-xs">{errors.license}</p>
+                  <p className="text-red-700 text-sm">{errors.license}</p>
                 )}
               </div>
               <div className="sm:col-span-2">
@@ -261,28 +268,30 @@ export default function BookingModal({
                   placeholder="Phone or Landline Number"
                   value={form.landline}
                   onChange={handleChange}
-                  className="p-2 border border-gray-300 rounded w-full"
+                  className="p-2 border border-gray-300 rounded w-full text-[#959a9f]"
                 />
                 {errors.landline && (
-                  <p className="text-red-500 text-xs">{errors.landline}</p>
+                  <p className="text-red-700 text-sm">{errors.landline}</p>
                 )}
               </div>
             </div>
 
-            <h3 className="font-semibold mb-2">Extras (Optional)</h3>
+            <h3 className="font-bold mb-2 text-[#d37a2e]">Extras (Optional)</h3>
             <div className="flex flex-col gap-2 mb-4">
-              <label className="inline-flex items-center">
-                <input type="checkbox" className="mr-2" /> Child Seat
+              <label className="inline-flex items-center text-[#959a9f]">
+                <input type="checkbox" className="mr-2 w-4 h-4" /> Child Seat
               </label>
-              <label className="inline-flex items-center">
-                <input type="checkbox" className="mr-2" /> Full Insurance
+              <label className="inline-flex items-center text-[#959a9f] text-lg">
+                <input type="checkbox" className="mr-2 w-4 h-4" /> Full
+                Insurance
               </label>
-              <label className="inline-flex items-center">
-                <input type="checkbox" className="mr-2" /> Additional Driver
+              <label className="inline-flex items-center text-[#959a9f]">
+                <input type="checkbox" className="mr-2 w-4 h-4" /> Additional
+                Driver
               </label>
             </div>
 
-            <div className="flex justify-center">
+            <div className="flex justify-center w-full">
               <Button
                 type="button"
                 variant="contained"
@@ -292,13 +301,14 @@ export default function BookingModal({
                   borderRadius: "999px",
                   px: 8,
                   py: 1,
+                  fontSize: "18px",
                   fontWeight: "bold",
                   textTransform: "none",
                   backgroundColor: "#d37a2e",
                   "&:hover": {
                     backgroundColor: "#d37a2e",
                     color: "white",
-                    scale: "1.1",
+                    transform: "translateY(-2px)",
                     transition: "all 0.3s ease",
                   },
                   whiteSpace: "nowrap",
