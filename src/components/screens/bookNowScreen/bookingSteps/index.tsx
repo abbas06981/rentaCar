@@ -7,7 +7,7 @@ const BookingSteps = () => {
       {/* Progress Segments */}
       <div className="absolute top-5 left-0 right-0 z-0  justify-between px-5 hidden md:flex">
         {/* Segment 1 */}
-        <div className="h-2 bg-[#F58220] flex-1 mx-2 rounded"></div>
+        <div className="h-2 bg-[#d37a2e] flex-1 mx-2 rounded"></div>
         {/* Segment 2 */}
         <div className="h-2 bg-[#000000] flex-1 mx-2 rounded"></div>
         {/* Segment 3 */}
@@ -18,7 +18,7 @@ const BookingSteps = () => {
         {/* Step 1 */}
         <div className="flex flex-col items-center">
           <div
-            className="w-10 h-10 bg-[#F58220] rounded-full
+            className="w-10 h-10 bg-[#d37a2e] rounded-full
              flex items-center justify-center text-white font-bold text-xl mb-2"
           >
             <CheckIcon />

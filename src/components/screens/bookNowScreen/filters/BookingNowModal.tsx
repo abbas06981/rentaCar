@@ -59,9 +59,9 @@ export default function BookingModal({
               py: 1,
               fontWeight: "bold",
               textTransform: "none",
-              backgroundColor: "#F58220",
+              backgroundColor: "#d37a2e",
               "&:hover": {
-                backgroundColor: "#F58220",
+                backgroundColor: "#d37a2e",
                 color: "white",
                 scale: "1.1",
                 transition: "all 0.3s ease",
@@ -86,7 +86,7 @@ export default function BookingModal({
           • {info.people} seats • {info.fuelType} • Class: {info.carClass}
         </p>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2 border-t-2 border-t-[#F58220] pt-2 mt-2 text-[#004d99] font-bold text-sm mb-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2 border-t-2 border-t-[#d37a2e] pt-2 mt-2 text-[#004d99] font-bold text-sm mb-4">
           <span className="flex items-center gap-1">
             <AccountTreeIcon sx={{ fontSize: "17px" }} /> {info.carClass}
           </span>
@@ -186,9 +186,9 @@ export default function BookingModal({
               py: 1,
               fontWeight: "bold",
               textTransform: "none",
-              backgroundColor: "#F58220",
+              backgroundColor: "#d37a2e",
               "&:hover": {
-                backgroundColor: "#F58220",
+                backgroundColor: "#d37a2e",
                 color: "white",
                 scale: "1.1",
                 transition: "all 0.3s ease",

@@ -10,13 +10,13 @@ const Index = () => {
   return (
     <div className="w-full  px-2 xs:px-2 sm:px-8 py-6">
       <div className="w-full flex text-[18px] font-medium ">
-        <Link href="/" className="pr-1 text-[#F58220] hover:text-[#f9b916]">
+        <Link href="/" className="pr-1 text-[#d37a2e] hover:text-[#d37a2e]">
           Home
         </Link>
         <span className="pr-1 text-[#16385c]">/</span>
         <span className="pr-1 text-[#16385c] ">Explore Vehicles</span>
       </div>
-      <h1 className=" py-5 font-bold text-2xl text-[#004d99]">
+      <h1 className=" py-5 font-bold text-2xl text-[#d37a2e]">
         Explore Vehicles
       </h1>
       <BookingSteps />
