@@ -7,7 +7,7 @@ import Image from "next/image";
 const Footer = () => {
   return (
     <div className="w-full bg-black text-white py-6 min-h-[80px] items-center">
-      <div className="w-full flex justify-between border-b-2 border-[#F58220] pb-5 px-8">
+      <div className="w-full flex justify-between border-b-2 border-[#d37a2e] pb-5 px-8">
         <Image
           src="/homeIcons/logo3.jpg"
           alt="logo"

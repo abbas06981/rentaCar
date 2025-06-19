@@ -41,11 +41,11 @@ const CarCards: React.FC<{ item: CarCardProps }> = ({ item }) => {
   return (
     <>
       <div
-        className=" border-[#F58220] border-2 rounded-xl 
+        className=" border-[#d37a2e] border-2 rounded-xl 
     text-[#043d71] p-8 w-full shadow hover:shadow-lg transition-all"
       >
         {/* Header */}
-        <div className="  font-bold text-[20px] text-[#F58220]">{carName}</div>
+        <div className="  font-bold text-[20px] text-[#d37a2e]">{carName}</div>
         <div className="flex items-center justify-between text-xs  font-semibold pt-5">
           <span className=" text-[#308ae4] font-semibold text-[14px]">
             or similar (Available)
@@ -57,7 +57,7 @@ const CarCards: React.FC<{ item: CarCardProps }> = ({ item }) => {
         {/* Features */}
         <div
           className="flex items-center justify-between border-t-2
-       border-t-[#F58220] pt-1  mt-2 text-[#004d99] font-bold text-sm"
+       border-t-[#d37a2e] pt-1  mt-2 text-[#004d99] font-bold text-sm"
         >
           {" "}
           <span className="flex items-center gap-0.5 ">
@@ -118,7 +118,7 @@ const CarCards: React.FC<{ item: CarCardProps }> = ({ item }) => {
         {/* Prices */}
         <div
           className="text-center text-sm  border-b-2
-       border-b-[#F58220]  font-bold text-[20px] pb-2 text-[#F58220]"
+       border-b-[#d37a2e]  font-bold text-[20px] pb-2 text-[#d37a2e]"
         >
           Total Price for 1 Day
         </div>
@@ -149,9 +149,9 @@ const CarCards: React.FC<{ item: CarCardProps }> = ({ item }) => {
               py: 1,
               fontWeight: "bold",
               textTransform: "none",
-              backgroundColor: "#F58220",
+              backgroundColor: "#d37a2e",
               "&:hover": {
-                backgroundColor: "#F58220",
+                backgroundColor: "#d37a2e",
                 color: "white",
                 scale: "1.1",
                 transition: "all 0.3s ease",
