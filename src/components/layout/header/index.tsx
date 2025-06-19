@@ -61,8 +61,8 @@ const Header = () => {
               },
             }}
           >
-            <MenuItem value="en">English</MenuItem>
-            <MenuItem value="it">Italian</MenuItem>
+            <MenuItem value="en">English </MenuItem>
+            <MenuItem value="it">Greek </MenuItem>
           </Select>
         </FormControl>
       </div>
