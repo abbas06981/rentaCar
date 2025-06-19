@@ -158,30 +158,32 @@ export default function BookingModal({
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2 border-t-2 border-t-[#d37a2e] pt-2 mt-2 text-[#004d99] font-bold text-sm mb-4">
-              <span className="flex items-center gap-1">
+              <span className="flex items-center gap-1 text-[#959a9f]">
                 <AccountTreeIcon sx={{ fontSize: "17px" }} /> {info.carClass}
               </span>
-              <span className="flex items-center gap-1">
+              <span className="flex items-center gap-1 text-[#959a9f]">
                 <LocalGasStationIcon
                   sx={{ fontSize: "17px", color: "#d37a2e" }}
                 />{" "}
                 {info.fuelType}
               </span>
-              <span className="flex items-center gap-1">
+              <span className="flex items-center gap-1 text-[#959a9f]">
                 <AirlineSeatReclineExtraIcon
                   sx={{ fontSize: "17px", color: "#d37a2e" }}
                 />{" "}
                 {info.doors}
               </span>
-              <span className="flex items-center gap-1">
+              <span className="flex items-center gap-1 text-[#959a9f]">
                 <PeopleIcon sx={{ fontSize: "17px", color: "#d37a2e" }} />{" "}
                 {info.people}
               </span>
-              <span className="flex items-center gap-1">
+              <span className="flex items-center gap-1 text-[#959a9f]">
                 <CasesIcon sx={{ fontSize: "17px", color: "#d37a2e" }} />{" "}
                 {info.bags}
               </span>
-              <span>{info.isAC ? "AC" : "No AC"}</span>
+              <span className="text-[#959a9f]">
+                {info.isAC ? "AC" : "No AC"}
+              </span>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
