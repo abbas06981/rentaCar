@@ -92,8 +92,12 @@ export default function BookingModal({
       valid = false;
     }
 
-    if (form.landline && !/^\d{6,15}$/.test(form.landline)) {
-      newErrors.landline = "Enter a valid landline number";
+    // ✅ Fixed Landline Validation
+    if (!form.landline.trim()) {
+      newErrors.landline = "Landline is required";
+      valid = false;
+    } else if (!/^\d{6,15}$/.test(form.landline)) {
+      newErrors.landline = "Landline must be 6 to 15 digits";
       valid = false;
     }
 
@@ -115,190 +119,196 @@ export default function BookingModal({
   return (
     <Modal open={open} onClose={handleClose}>
       <Box sx={modalStyle} className="bg-white p-4 sm:p-6 relative shadow-lg">
-        <div className="flex justify-end">
-          <Button
-            onClick={handleClose}
-            variant="contained"
-            size="small"
-            sx={{
-              borderRadius: "10px",
-              px: 2,
-              py: 1,
-              fontWeight: "bold",
-              textTransform: "none",
-              backgroundColor: "#d37a2e",
-              "&:hover": {
+        <div className="p-4 sm:p-6 flex flex-col bg-white sticky top-0 z-10">
+          <div className="flex justify-end">
+            <Button
+              onClick={handleClose}
+              variant="contained"
+              size="small"
+              sx={{
+                borderRadius: "10px",
+                px: 2,
+                py: 1,
+                fontWeight: "bold",
+                textTransform: "none",
                 backgroundColor: "#d37a2e",
-                color: "white",
-                scale: "1.1",
-                transition: "all 0.3s ease",
-              },
-              whiteSpace: "nowrap",
-            }}
-          >
-            <CloseIcon />
-          </Button>
-        </div>
-
-        <Image
-          src={info.carImage}
-          alt={info.carName}
-          width={500}
-          height={300}
-          className="h-56 sm:h-64 object-contain w-full mb-4"
-        />
-
-        <h2 className="text-xl font-semibold text-[#043d71]">{info.carName}</h2>
-        <p className="text-sm text-gray-600 mb-4">
-          • {info.people} seats • {info.fuelType} • Class: {info.carClass}
-        </p>
-
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2 border-t-2 border-t-[#d37a2e] pt-2 mt-2 text-[#004d99] font-bold text-sm mb-4">
-          <span className="flex items-center gap-1">
-            <AccountTreeIcon sx={{ fontSize: "17px" }} /> {info.carClass}
-          </span>
-          <span className="flex items-center gap-1">
-            <LocalGasStationIcon sx={{ fontSize: "17px" }} /> {info.fuelType}
-          </span>
-          <span className="flex items-center gap-1">
-            <AirlineSeatReclineExtraIcon sx={{ fontSize: "17px" }} />{" "}
-            {info.doors}
-          </span>
-          <span className="flex items-center gap-1">
-            <PeopleIcon sx={{ fontSize: "17px" }} /> {info.people}
-          </span>
-          <span className="flex items-center gap-1">
-            <CasesIcon sx={{ fontSize: "17px" }} /> {info.bags}
-          </span>
-          <span>{info.isAC ? "AC" : "No AC"}</span>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-          <div>
-            <label className="text-sm font-medium">Start Date</label>
-            <input
-              type="datetime-local"
-              className="w-full mt-1 p-2 border border-gray-300 rounded"
-              defaultValue="2024-05-24T10:00"
-            />
+                "&:hover": {
+                  backgroundColor: "#d37a2e",
+                  color: "white",
+                  scale: "1.1",
+                  transition: "all 0.3s ease",
+                },
+              }}
+            >
+              <CloseIcon />
+            </Button>
           </div>
-          <div>
-            <label className="text-sm font-medium">End Date</label>
-            <input
-              type="datetime-local"
-              className="w-full mt-1 p-2 border border-gray-300 rounded"
-              defaultValue="2024-05-26T10:00"
-            />
-          </div>
-        </div>
 
-        <h3 className="font-semibold mb-2">Driver Details</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-          <div>
-            <input
-              type="text"
-              name="fullName"
-              placeholder="Full Name"
-              value={form.fullName}
-              onChange={handleChange}
-              className="p-2 border border-gray-300 rounded w-full"
+          <div className="overflow-y-auto px-4 sm:px-6 pb-6 pt-2 flex-1 bg-white">
+            <Image
+              src={info.carImage}
+              alt={info.carName}
+              width={500}
+              height={300}
+              className="h-56 sm:h-64 object-contain w-full mb-4"
             />
-            {errors.fullName && (
-              <p className="text-red-500 text-xs">{errors.fullName}</p>
-            )}
-          </div>
-          <div>
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={form.email}
-              onChange={handleChange}
-              className="p-2 border border-gray-300 rounded w-full"
-            />
-            {errors.email && (
-              <p className="text-red-500 text-xs">{errors.email}</p>
-            )}
-          </div>
-          <div>
-            <input
-              type="tel"
-              name="phone"
-              placeholder="Mobile Number"
-              value={form.phone}
-              onChange={handleChange}
-              className="p-2 border border-gray-300 rounded w-full"
-            />
-            {errors.phone && (
-              <p className="text-red-500 text-xs">{errors.phone}</p>
-            )}
-          </div>
-          <div>
-            <input
-              type="text"
-              name="license"
-              placeholder="License Number"
-              value={form.license}
-              onChange={handleChange}
-              className="p-2 border border-gray-300 rounded w-full"
-            />
-            {errors.license && (
-              <p className="text-red-500 text-xs">{errors.license}</p>
-            )}
-          </div>
-          <div className="sm:col-span-2">
-            <input
-              type="tel"
-              name="landline"
-              placeholder="Phone or Landline Number"
-              value={form.landline}
-              onChange={handleChange}
-              className="p-2 border border-gray-300 rounded w-full"
-            />
-            {errors.landline && (
-              <p className="text-red-500 text-xs">{errors.landline}</p>
-            )}
-          </div>
-        </div>
 
-        <h3 className="font-semibold mb-2">Extras (Optional)</h3>
-        <div className="flex flex-col gap-2 mb-4">
-          <label className="inline-flex items-center">
-            <input type="checkbox" className="mr-2" /> Child Seat
-          </label>
-          <label className="inline-flex items-center">
-            <input type="checkbox" className="mr-2" /> Full Insurance
-          </label>
-          <label className="inline-flex items-center">
-            <input type="checkbox" className="mr-2" /> Additional Driver
-          </label>
-        </div>
+            <h2 className="text-xl font-semibold text-[#043d71]">
+              {info.carName}
+            </h2>
+            <p className="text-sm text-gray-600 mb-4">
+              • {info.people} seats • {info.fuelType} • Class: {info.carClass}
+            </p>
 
-        <div className="flex justify-center">
-          <Button
-            type="button"
-            variant="contained"
-            size="small"
-            sx={{
-              width: "80%",
-              borderRadius: "999px",
-              px: 8,
-              py: 1,
-              fontWeight: "bold",
-              textTransform: "none",
-              backgroundColor: "#d37a2e",
-              "&:hover": {
-                backgroundColor: "#d37a2e",
-                color: "white",
-                scale: "1.1",
-                transition: "all 0.3s ease",
-              },
-              whiteSpace: "nowrap",
-            }}
-            onClick={handleSubmit}
-          >
-            Confirm Booking
-          </Button>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2 border-t-2 border-t-[#d37a2e] pt-2 mt-2 text-[#004d99] font-bold text-sm mb-4">
+              <span className="flex items-center gap-1">
+                <AccountTreeIcon sx={{ fontSize: "17px" }} /> {info.carClass}
+              </span>
+              <span className="flex items-center gap-1">
+                <LocalGasStationIcon sx={{ fontSize: "17px" }} />{" "}
+                {info.fuelType}
+              </span>
+              <span className="flex items-center gap-1">
+                <AirlineSeatReclineExtraIcon sx={{ fontSize: "17px" }} />{" "}
+                {info.doors}
+              </span>
+              <span className="flex items-center gap-1">
+                <PeopleIcon sx={{ fontSize: "17px" }} /> {info.people}
+              </span>
+              <span className="flex items-center gap-1">
+                <CasesIcon sx={{ fontSize: "17px" }} /> {info.bags}
+              </span>
+              <span>{info.isAC ? "AC" : "No AC"}</span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+              <div>
+                <label className="text-sm font-medium">Start Date</label>
+                <input
+                  type="datetime-local"
+                  className="w-full mt-1 p-2 border border-gray-300 rounded"
+                  defaultValue="2024-05-24T10:00"
+                />
+              </div>
+              <div>
+                <label className="text-sm font-medium">End Date</label>
+                <input
+                  type="datetime-local"
+                  className="w-full mt-1 p-2 border border-gray-300 rounded"
+                  defaultValue="2024-05-26T10:00"
+                />
+              </div>
+            </div>
+
+            <h3 className="font-semibold mb-2">Driver Details</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+              <div>
+                <input
+                  type="text"
+                  name="fullName"
+                  placeholder="Full Name"
+                  value={form.fullName}
+                  onChange={handleChange}
+                  className="p-2 border border-gray-300 rounded w-full"
+                />
+                {errors.fullName && (
+                  <p className="text-red-500 text-xs">{errors.fullName}</p>
+                )}
+              </div>
+              <div>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  value={form.email}
+                  onChange={handleChange}
+                  className="p-2 border border-gray-300 rounded w-full"
+                />
+                {errors.email && (
+                  <p className="text-red-500 text-xs">{errors.email}</p>
+                )}
+              </div>
+              <div>
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Mobile Number"
+                  value={form.phone}
+                  onChange={handleChange}
+                  className="p-2 border border-gray-300 rounded w-full"
+                />
+                {errors.phone && (
+                  <p className="text-red-500 text-xs">{errors.phone}</p>
+                )}
+              </div>
+              <div>
+                <input
+                  type="text"
+                  name="license"
+                  placeholder="License Number"
+                  value={form.license}
+                  onChange={handleChange}
+                  className="p-2 border border-gray-300 rounded w-full"
+                />
+                {errors.license && (
+                  <p className="text-red-500 text-xs">{errors.license}</p>
+                )}
+              </div>
+              <div className="sm:col-span-2">
+                <input
+                  type="tel"
+                  name="landline"
+                  placeholder="Phone or Landline Number"
+                  value={form.landline}
+                  onChange={handleChange}
+                  className="p-2 border border-gray-300 rounded w-full"
+                />
+                {errors.landline && (
+                  <p className="text-red-500 text-xs">{errors.landline}</p>
+                )}
+              </div>
+            </div>
+
+            <h3 className="font-semibold mb-2">Extras (Optional)</h3>
+            <div className="flex flex-col gap-2 mb-4">
+              <label className="inline-flex items-center">
+                <input type="checkbox" className="mr-2" /> Child Seat
+              </label>
+              <label className="inline-flex items-center">
+                <input type="checkbox" className="mr-2" /> Full Insurance
+              </label>
+              <label className="inline-flex items-center">
+                <input type="checkbox" className="mr-2" /> Additional Driver
+              </label>
+            </div>
+
+            <div className="flex justify-center">
+              <Button
+                type="button"
+                variant="contained"
+                size="small"
+                sx={{
+                  width: "80%",
+                  borderRadius: "999px",
+                  px: 8,
+                  py: 1,
+                  fontWeight: "bold",
+                  textTransform: "none",
+                  backgroundColor: "#d37a2e",
+                  "&:hover": {
+                    backgroundColor: "#d37a2e",
+                    color: "white",
+                    scale: "1.1",
+                    transition: "all 0.3s ease",
+                  },
+                  whiteSpace: "nowrap",
+                }}
+                onClick={handleSubmit}
+              >
+                Confirm Booking
+              </Button>
+            </div>
+          </div>
         </div>
       </Box>
     </Modal>
