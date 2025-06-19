@@ -65,10 +65,6 @@ const Header = () => {
             <MenuItem value="it">Italian</MenuItem>
           </Select>
         </FormControl>
-
-        <Button>
-          <MenuSharpIcon sx={{ color: "#d37a2e", fontSize: 35 }} />
-        </Button>
       </div>
     </div>
   );
