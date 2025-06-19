@@ -42,12 +42,12 @@ const CarCards: React.FC<{ item: CarCardProps }> = ({ item }) => {
     <>
       <div
         className=" border-[#d37a2e] border-2 rounded-xl 
-    text-[#043d71] p-8 w-full shadow hover:shadow-lg transition-all"
+    text-[#959a9f] p-8 w-full shadow hover:shadow-lg transition-all"
       >
         {/* Header */}
         <div className="  font-bold text-[20px] text-[#d37a2e]">{carName}</div>
         <div className="flex items-center justify-between text-xs  font-semibold pt-5">
-          <span className=" text-[#308ae4] font-semibold text-[14px]">
+          <span className=" text-[#959a9f] font-semibold text-[14px]">
             or similar (Available)
           </span>
           <span className="   font-semibold text-[14px]">
@@ -57,7 +57,7 @@ const CarCards: React.FC<{ item: CarCardProps }> = ({ item }) => {
         {/* Features */}
         <div
           className="flex items-center justify-between border-t-2
-       border-t-[#d37a2e] pt-1  mt-2 text-[#004d99] font-bold text-sm"
+       border-t-[#d37a2e] pt-1  mt-2  font-bold text-sm"
         >
           {" "}
           <span className="flex items-center gap-0.5 ">
@@ -65,6 +65,7 @@ const CarCards: React.FC<{ item: CarCardProps }> = ({ item }) => {
             <AccountTreeIcon
               sx={{
                 fontSize: "17px",
+                color: "#d37a2e",
               }}
             />{" "}
             A
@@ -73,6 +74,7 @@ const CarCards: React.FC<{ item: CarCardProps }> = ({ item }) => {
             <LocalGasStationIcon
               sx={{
                 fontSize: "17px",
+                color: "#d37a2e",
               }}
             />
             {fuelType}
@@ -81,6 +83,7 @@ const CarCards: React.FC<{ item: CarCardProps }> = ({ item }) => {
             <AirlineSeatReclineExtraIcon
               sx={{
                 fontSize: "17px",
+                color: "#d37a2e",
               }}
             />
             {doors}
@@ -89,6 +92,7 @@ const CarCards: React.FC<{ item: CarCardProps }> = ({ item }) => {
             <PeopleIcon
               sx={{
                 fontSize: "17px",
+                color: "#d37a2e",
               }}
             />
             {people}
@@ -97,6 +101,7 @@ const CarCards: React.FC<{ item: CarCardProps }> = ({ item }) => {
             <CasesIcon
               sx={{
                 fontSize: "17px",
+                color: "#d37a2e",
               }}
             />
             {bags}
@@ -125,13 +130,13 @@ const CarCards: React.FC<{ item: CarCardProps }> = ({ item }) => {
         <div className="flex justify-between mt-1  font-bold text-[24px] ">
           <div className="text-center">
             <div>{priceDesk}€</div>
-            <div className=" text-[#308ae4] text-[18px]">
+            <div className=" text-[#959a9f] text-[18px]">
               {priceDesk} € / Daily
             </div>
           </div>
           <div className="text-center">
             <div className="">{priceOnline}€</div>
-            <div className="text-[#308ae4] text-[18px] ">
+            <div className="text-[#959a9f] text-[18px] ">
               {priceOnline} € / Daily
             </div>
           </div>

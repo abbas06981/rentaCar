@@ -24,10 +24,10 @@ const BookingSteps = () => {
             <CheckIcon />
           </div>
           <div className="flex flex-col">
-            <span className="text-center font-bold text-[18px] text-[#004d99] pt-1">
+            <span className="text-center font-bold text-[18px] text-[#d37a2e] pt-1">
               Step 1
             </span>
-            <span className="text-center font-bold text-[14px] text-[#53adff] pt-1">
+            <span className="text-center font-bold text-[14px] text-[#959a9f] pt-1">
               Pickup &<br /> Drop-Off
             </span>
           </div>
@@ -42,10 +42,10 @@ const BookingSteps = () => {
             <CheckIcon />
           </div>
           <div className="flex flex-col">
-            <span className="text-center font-bold text-[18px] text-[#004d99] pt-1">
+            <span className="text-center font-bold text-[18px] text-[#d37a2e] pt-1">
               Step 2
             </span>
-            <span className="text-center font-bold text-[14px] text-[#53adff] pt-1">
+            <span className="text-center font-bold text-[14px] text-[#959a9f] pt-1">
               Choose Your <br /> Vehicle
             </span>
           </div>
@@ -55,10 +55,10 @@ const BookingSteps = () => {
         <div className="flex flex-col items-center">
           <div className="w-10 h-10 bg-[#000000] rounded-full flex items-center justify-center text-white font-bold text-xl mb-2"></div>
           <div className="flex flex-col">
-            <span className="text-center font-bold text-[18px] text-[#004d99] pt-1">
+            <span className="text-center font-bold text-[18px] text-[#d37a2e] pt-1">
               Step 3
             </span>
-            <span className="text-center font-bold text-[14px] text-[#53adff] pt-1">
+            <span className="text-center font-bold text-[14px] text-[#959a9f] pt-1">
               Confirm <br /> Booking
             </span>
           </div>

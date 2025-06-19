@@ -14,7 +14,7 @@ const Index = () => {
           Home
         </Link>
         <span className="pr-1 text-[#16385c]">/</span>
-        <span className="pr-1 text-[#16385c] ">Explore Vehicles</span>
+        <span className="pr-1 text-[#959a9f] ">Explore Vehicles</span>
       </div>
       <h1 className=" py-5 font-bold text-2xl text-[#d37a2e]">
         Explore Vehicles

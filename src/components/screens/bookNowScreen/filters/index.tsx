@@ -75,7 +75,7 @@ const FilterSection: React.FC = () => {
               },
             },
             "& .MuiSelect-outlined": {
-              color: "#004d99",
+              color: "##959a9f",
             },
           }}
         >
