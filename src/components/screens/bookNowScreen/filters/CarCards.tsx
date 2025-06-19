@@ -45,7 +45,7 @@ const CarCards: React.FC<{ item: CarCardProps }> = ({ item }) => {
     text-[#043d71] p-8 w-full shadow hover:shadow-lg transition-all"
       >
         {/* Header */}
-        <div className="  font-bold text-[20px]">{carName}</div>
+        <div className="  font-bold text-[20px] text-[#F58220]">{carName}</div>
         <div className="flex items-center justify-between text-xs  font-semibold pt-5">
           <span className=" text-[#308ae4] font-semibold text-[14px]">
             or similar (Available)
@@ -110,12 +110,15 @@ const CarCards: React.FC<{ item: CarCardProps }> = ({ item }) => {
           alt={carName}
           width={500} // 48 x 4 = 192px
           height={500} // 28 x 4 = 112px
+          objectFit="contain"
+          priority
+          quality={100}
           className="h-64 object-contain w-full"
         />
         {/* Prices */}
         <div
           className="text-center text-sm  border-b-2
-       border-b-[#F58220]  font-bold text-[20px] pb-2"
+       border-b-[#F58220]  font-bold text-[20px] pb-2 text-[#F58220]"
         >
           Total Price for 1 Day
         </div>
