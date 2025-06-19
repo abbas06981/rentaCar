@@ -28,13 +28,6 @@ const Header = () => {
             <MenuItem value="20">Italian</MenuItem>
           </Select>
         </FormControl>
-<<<<<<< Updated upstream
-
-        <Button>
-          <MenuSharpIcon sx={{ color: "#F58220", fontSize: 35 }} />
-        </Button>
-=======
->>>>>>> Stashed changes
       </div>
     </div>
   );
